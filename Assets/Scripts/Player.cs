@@ -8,24 +8,32 @@ public class Player : MonoBehaviour
 {
     [SerializeField] float runSpeed = 5f;
     [SerializeField] float jumpForce = 20f;
+    [SerializeField] float climbSpeed = 5f;
+    [SerializeField] float dashSpeed = 9f;
 
     bool isAlive = true;
 
     Rigidbody2D myRigidbody;
     Animator myAnimator;
     Collider2D myCollider2d;
+    float gravityScaleAtStart;
+    float startValueOfRunSpeed;
 
     void Start()
     {
         myRigidbody = GetComponent<Rigidbody2D>();
         myAnimator = GetComponent<Animator>();
         myCollider2d = GetComponent<Collider2D>();
+        gravityScaleAtStart = myRigidbody.gravityScale;
+        startValueOfRunSpeed = runSpeed;
     }
 
     void Update()
     {
         Run();
+        Dash();
         Jump();
+        Climb();
     }
 
     private void Run()
@@ -36,9 +44,20 @@ public class Player : MonoBehaviour
         RunningAnimationAndFlipSprite();
     }
 
+    private void Dash()
+    {
+        if (Input.GetButton("Dash"))
+        {
+            runSpeed = dashSpeed; 
+        }
+        else
+        {
+            runSpeed = startValueOfRunSpeed;
+        }
+    }
+
     private void Jump()
     {
-        JumpAnimation();
         if (Input.GetButtonDown("Jump") && myCollider2d.IsTouchingLayers(LayerMask.GetMask("Ground")))
         {
             Vector2 jumpVelocity = new Vector2(0f, jumpForce);
@@ -46,10 +65,25 @@ public class Player : MonoBehaviour
         }
     }
 
+    private void Climb()
+    {
+        if (!myCollider2d.IsTouchingLayers(LayerMask.GetMask("Climbing")))
+        {
+            myAnimator.SetBool("climbing", false);
+            myRigidbody.gravityScale = gravityScaleAtStart;
+            return;
+        }
+        myRigidbody.gravityScale = 0;
+        float climbThrow = Input.GetAxis("Vertical"); //-1 to +1
+        Vector2 climbVelocity = new Vector2(myRigidbody.velocity.x, climbThrow * climbSpeed);
+        myRigidbody.velocity = climbVelocity;
+        ClimbingAnimation();
+    }
+
     private void RunningAnimationAndFlipSprite()
     {
         bool playerHasHorizontalSpeed = Mathf.Abs(myRigidbody.velocity.x) > Mathf.Epsilon;
-        if (playerHasHorizontalSpeed)
+        if (playerHasHorizontalSpeed && !myCollider2d.IsTouchingLayers(LayerMask.GetMask("Climbing")))
         {
             myAnimator.SetBool("running", true); //Running animation is active
             transform.localScale = new Vector2(Mathf.Sign(myRigidbody.velocity.x), 1f);
@@ -60,16 +94,12 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void JumpAnimation() // Do it when on the air without X velocity
+    private void ClimbingAnimation()
     {
-        bool isOnTheAir = !myCollider2d.IsTouchingLayers(LayerMask.GetMask("Ground"));
-        if (isOnTheAir)
+        bool playerHasVerticalSpeed = Mathf.Abs(myRigidbody.velocity.y) > Mathf.Epsilon;
+        if (playerHasVerticalSpeed)
         {
-            myAnimator.SetBool("jumping", true);
-        }
-        else
-        {
-            myAnimator.SetBool("jumping", false);
+            myAnimator.SetBool("climbing", true);
         }
     }
 }
