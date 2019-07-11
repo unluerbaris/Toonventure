@@ -3,7 +3,9 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Ground
+  - Background
   layers:
   - Default
   - TransparentFX
@@ -17,7 +19,7 @@ TagManager:
   - Climbing
   - Player
   - Background
-  - 
+  - Enemy
   - 
   - 
   - 
@@ -49,6 +51,9 @@ TagManager:
     locked: 0
   - name: Climbing
     uniqueID: 854731319
+    locked: 0
+  - name: Enemy
+    uniqueID: 3894306925
     locked: 0
   - name: Player
     uniqueID: 2813416001
