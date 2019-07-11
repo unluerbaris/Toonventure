@@ -18,6 +18,9 @@ public class Player : MonoBehaviour
     Collider2D myCollider2d;
     float gravityScaleAtStart;
     float startValueOfRunSpeed;
+    float onTheAirTime;
+    float glideOnTheAirTimeLimit = 0.5f; // Between 0-0.5secs while on the air
+                                        // dashSpeed on X axis can effect while Jumping or Gliding 
 
     void Start()
     {
@@ -31,9 +34,11 @@ public class Player : MonoBehaviour
     void Update()
     {
         Run();
-        Dash();
+        Sprint();
         Jump();
+        OnTheAirTime();
         Climb();
+        Debug.Log(onTheAirTime);
     }
 
     private void Run()
@@ -44,9 +49,9 @@ public class Player : MonoBehaviour
         RunningAnimationAndFlipSprite();
     }
 
-    private void Dash()
+    private void Sprint()
     {
-        if (Input.GetButton("Dash") && myCollider2d.IsTouchingLayers(LayerMask.GetMask("Ground")))
+        if (Input.GetButton("Dash") && onTheAirTime <= glideOnTheAirTimeLimit)
         {
             runSpeed = dashSpeed; 
         }
@@ -63,6 +68,17 @@ public class Player : MonoBehaviour
             Vector2 jumpVelocity = new Vector2(0f, jumpForce);
             myRigidbody.velocity += jumpVelocity;
         }
+    }
+
+    private void OnTheAirTime()
+    {
+        if (myCollider2d.IsTouchingLayers(LayerMask.GetMask("Ground")) || 
+            myCollider2d.IsTouchingLayers(LayerMask.GetMask("Climbing")))
+        {
+            onTheAirTime = 0f;
+            return;
+        }
+        onTheAirTime += Time.deltaTime;
     }
 
     private void Climb()
