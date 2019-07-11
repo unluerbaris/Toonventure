@@ -46,7 +46,7 @@ public class Player : MonoBehaviour
 
     private void Dash()
     {
-        if (Input.GetButton("Dash"))
+        if (Input.GetButton("Dash") && myCollider2d.IsTouchingLayers(LayerMask.GetMask("Ground")))
         {
             runSpeed = dashSpeed; 
         }

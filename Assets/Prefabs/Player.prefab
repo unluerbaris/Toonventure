@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8865379675529938909}
   - component: {fileID: 1404561897}
   - component: {fileID: 1404561896}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50,6 +50,7 @@ MonoBehaviour:
   runSpeed: 5
   jumpForce: 20
   climbSpeed: 5
+  dashSpeed: 9
 --- !u!212 &8865379675529938910
 SpriteRenderer:
   m_ObjectHideFlags: 0
