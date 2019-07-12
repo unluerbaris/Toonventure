@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     [SerializeField] float runSpeed = 5f;
     [SerializeField] float jumpForce = 20f;
     [SerializeField] float climbSpeed = 5f;
+    Vector2 deathAnimation = new Vector2(-5f, 20f);
 
     bool isAlive = true;
 
@@ -29,9 +30,11 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        if (!isAlive) { return; }
         Run();
         Jump();
         Climb();
+        Die();
     }
 
     private void Run()
@@ -71,6 +74,19 @@ public class Player : MonoBehaviour
         if (playerHasVerticalSpeed)
         {
             myAnimator.SetBool("climbing", playerHasVerticalSpeed);
+        }
+    }
+
+    private void Die()
+    {
+        if (myBodyCollider2d.IsTouchingLayers(LayerMask.GetMask("Enemy")))
+        {
+            isAlive = false;
+            myRigidbody.velocity = deathAnimation;
+            myAnimator.SetTrigger("death");
+            myBodyCollider2d.enabled = false;
+            myFeetCollider.enabled = false;
+            Destroy(gameObject, 1f);
         }
     }
 
