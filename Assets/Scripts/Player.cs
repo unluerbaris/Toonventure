@@ -9,6 +9,8 @@ public class Player : MonoBehaviour
     [SerializeField] float runSpeed = 5f;
     [SerializeField] float jumpForce = 20f;
     [SerializeField] float climbSpeed = 5f;
+    public int playerLives = 3;
+    [SerializeField] float damageAllowTime = 1f;
     Vector2 deathAnimation = new Vector2(-5f, 20f);
 
     bool isAlive = true;
@@ -17,7 +19,9 @@ public class Player : MonoBehaviour
     Animator myAnimator;
     CapsuleCollider2D myBodyCollider2d;
     BoxCollider2D myFeetCollider;
+    LivesMeter livesMeter;
     float gravityScaleAtStart;
+    float timeSinceLastHit; //Enemy only can hit once in per X second;
 
     void Start()
     {
@@ -25,6 +29,7 @@ public class Player : MonoBehaviour
         myAnimator = GetComponent<Animator>();
         myBodyCollider2d = GetComponent<CapsuleCollider2D>();
         myFeetCollider = GetComponent<BoxCollider2D>();
+        livesMeter = FindObjectOfType<LivesMeter>();
         gravityScaleAtStart = myRigidbody.gravityScale;
     }
 
@@ -57,7 +62,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void Climb()//TODO check jump on the ladder action again
+    private void Climb()//TODO check jump on the ladder action??? And better climbing function??
     {
         if (!myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Climbing")) || Input.GetButtonDown("Jump"))
         {
@@ -79,14 +84,28 @@ public class Player : MonoBehaviour
 
     private void Die()
     {
+        timeSinceLastHit += Time.deltaTime;
+
         if (myBodyCollider2d.IsTouchingLayers(LayerMask.GetMask("Enemy")))
         {
-            isAlive = false;
-            myRigidbody.velocity = deathAnimation;
-            myAnimator.SetTrigger("death");
-            myBodyCollider2d.enabled = false;
-            myFeetCollider.enabled = false;
-            Destroy(gameObject, 1f);
+            if (playerLives > 1 && timeSinceLastHit >= damageAllowTime) //TODO inform player with effect 
+                                                                        //when it takes damage
+            {
+                LoseLives();
+                livesMeter.PlayerLivesMeter(playerLives);
+                timeSinceLastHit = 0;
+            }
+            else if (timeSinceLastHit >= damageAllowTime)
+            {
+                LoseLives();
+                livesMeter.PlayerLivesMeter(playerLives);
+                isAlive = false;
+                myRigidbody.velocity = deathAnimation;
+                myAnimator.SetTrigger("death");
+                myBodyCollider2d.enabled = false;
+                myFeetCollider.enabled = false;
+                Destroy(gameObject, 1f);
+            }
         }
     }
 
@@ -97,5 +116,10 @@ public class Player : MonoBehaviour
         {
             transform.localScale = new Vector2(Mathf.Sign(myRigidbody.velocity.x), 1f);
         }
+    }
+
+    private void LoseLives()
+    {
+        playerLives--;
     }
 }
