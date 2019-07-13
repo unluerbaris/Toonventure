@@ -5666,11 +5666,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 131667055438284386, guid: 855840f4e7978624c96d19f695a88659,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 855840f4e7978624c96d19f695a88659, type: 3}
 --- !u!1001 &3035706637376389238
@@ -5969,6 +5964,21 @@ PrefabInstance:
     - target: {fileID: 1781558144, guid: 5e54e98467d5f84458f76ba5e3eb17b3, type: 3}
       propertyPath: m_IsTrigger
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2607580716015654423, guid: 5e54e98467d5f84458f76ba5e3eb17b3,
+        type: 3}
+      propertyPath: takeDamageSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 63856882c5e70454a89b2545c8bbf398, type: 3}
+    - target: {fileID: 2607580716015654423, guid: 5e54e98467d5f84458f76ba5e3eb17b3,
+        type: 3}
+      propertyPath: loseSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: de6ef5a5540d98346a1ca7065334e3b5, type: 3}
+    - target: {fileID: 2607580716015654423, guid: 5e54e98467d5f84458f76ba5e3eb17b3,
+        type: 3}
+      propertyPath: loseSoundVol
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e54e98467d5f84458f76ba5e3eb17b3, type: 3}

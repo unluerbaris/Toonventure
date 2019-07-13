@@ -11,6 +11,10 @@ public class Player : MonoBehaviour
     [SerializeField] float climbSpeed = 5f;
     public int playerLives = 3;
     [SerializeField] float damageAllowTime = 1f;
+    [Range(0, 1)] [SerializeField] float playerSoundVol = 0.25f;
+    [Range(0, 1)] [SerializeField] float loseSoundVol = 1f;
+    [SerializeField] AudioClip takeDamageSFX;
+    [SerializeField] AudioClip loseSFX;
     Vector2 deathAnimation = new Vector2(-5f, 20f);
 
     bool isAlive = true;
@@ -20,6 +24,7 @@ public class Player : MonoBehaviour
     CapsuleCollider2D myBodyCollider2d;
     BoxCollider2D myFeetCollider;
     LivesMeter livesMeter;
+    GameObject audioListener;
     float gravityScaleAtStart;
     float timeSinceLastHit; //Enemy only can hit once in per X second;
 
@@ -30,6 +35,7 @@ public class Player : MonoBehaviour
         myBodyCollider2d = GetComponent<CapsuleCollider2D>();
         myFeetCollider = GetComponent<BoxCollider2D>();
         livesMeter = FindObjectOfType<LivesMeter>();
+        audioListener = GameObject.FindWithTag("AudioListener");
         gravityScaleAtStart = myRigidbody.gravityScale;
     }
 
@@ -91,12 +97,14 @@ public class Player : MonoBehaviour
             if (playerLives > 1 && timeSinceLastHit >= damageAllowTime) //TODO inform player with effect 
                                                                         //when it takes damage
             {
+                AudioSource.PlayClipAtPoint(takeDamageSFX, audioListener.transform.position, playerSoundVol);
                 LoseLives();
                 livesMeter.PlayerLivesMeter(playerLives);
                 timeSinceLastHit = 0;
             }
             else if (timeSinceLastHit >= damageAllowTime)
             {
+                AudioSource.PlayClipAtPoint(loseSFX, audioListener.transform.position, loseSoundVol);
                 LoseLives();
                 livesMeter.PlayerLivesMeter(playerLives);
                 isAlive = false;
@@ -121,5 +129,13 @@ public class Player : MonoBehaviour
     private void LoseLives()
     {
         playerLives--;
+    }
+
+    public void DestroyEnemy(Collider2D enemyCollider) // fix the destroy enemy system
+    {
+        if (myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Enemy")))
+        {
+            Destroy(enemyCollider.gameObject);
+        }
     }
 }
