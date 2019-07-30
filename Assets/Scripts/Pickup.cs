@@ -9,17 +9,23 @@ public class Pickup : MonoBehaviour
     [Range(0,1)][SerializeField] float soundVol = 0.25f;
     GameObject audioListener;
     GameSession gameSession;
+    GameObject player;
 
     private void Start()
     {
+        player = GameObject.FindWithTag("Player");
         audioListener = GameObject.FindWithTag("AudioListener");
         gameSession = FindObjectOfType<GameSession>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        AudioSource.PlayClipAtPoint(carrotPickUpSFX, audioListener.transform.position, soundVol);
-        gameSession.AddToScore(score);
-        Destroy(gameObject);
+        if (collision == player.GetComponent<CapsuleCollider2D>())
+        {
+            AudioSource.PlayClipAtPoint(carrotPickUpSFX, audioListener.transform.position, soundVol);
+            gameSession.AddToScore(score);
+            Destroy(gameObject);
+        }
+        else { return; }
     }
 }
