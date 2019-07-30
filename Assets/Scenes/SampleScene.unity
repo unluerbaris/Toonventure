@@ -5691,6 +5691,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 131667055438284397, guid: 855840f4e7978624c96d19f695a88659,
+        type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: d041a97a8e79e424c9f4e999a0eb5e32, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 855840f4e7978624c96d19f695a88659, type: 3}
 --- !u!1001 &3035706637376389238
@@ -6025,6 +6030,10 @@ PrefabInstance:
         type: 3}
       propertyPath: loseSoundVol
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1404561897, guid: 5e54e98467d5f84458f76ba5e3eb17b3, type: 3}
+      propertyPath: m_Material
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e54e98467d5f84458f76ba5e3eb17b3, type: 3}
