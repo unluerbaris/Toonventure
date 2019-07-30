@@ -131,11 +131,14 @@ public class Player : MonoBehaviour
         playerLives--;
     }
 
-    public void DestroyEnemy(Collider2D enemyCollider) // fix the destroy enemy system
+    public void DestroyEnemy(Collider2D enemyCollider) //TODO fix the destroy enemy system
     {
+        Animator enemyAnim = enemyCollider.gameObject.GetComponent<Animator>();
+
         if (myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Enemy")))
         {
-            Destroy(enemyCollider.gameObject);
+            enemyAnim.SetTrigger("die");
+            Destroy(enemyCollider.gameObject, 0.4f);
         }
     }
 }

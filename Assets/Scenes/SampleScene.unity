@@ -5991,17 +5991,25 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1404561896, guid: 5e54e98467d5f84458f76ba5e3eb17b3, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1781558144, guid: 5e54e98467d5f84458f76ba5e3eb17b3, type: 3}
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1781558144, guid: 5e54e98467d5f84458f76ba5e3eb17b3, type: 3}
       propertyPath: m_Offset.x
-      value: -0.059266567
+      value: -0.043631077
       objectReference: {fileID: 0}
     - target: {fileID: 1781558144, guid: 5e54e98467d5f84458f76ba5e3eb17b3, type: 3}
       propertyPath: m_Size.x
-      value: 0.66544247
+      value: 0.6258478
+      objectReference: {fileID: 0}
+    - target: {fileID: 1781558144, guid: 5e54e98467d5f84458f76ba5e3eb17b3, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2607580716015654423, guid: 5e54e98467d5f84458f76ba5e3eb17b3,
         type: 3}
