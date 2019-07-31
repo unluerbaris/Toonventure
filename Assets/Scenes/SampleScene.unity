@@ -6710,12 +6710,12 @@ PrefabInstance:
     - target: {fileID: 6741024496154105218, guid: e48a4c6ca6dad9b43ae953739af4e6bb,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 30.19
+      value: 51.17
       objectReference: {fileID: 0}
     - target: {fileID: 6741024496154105218, guid: e48a4c6ca6dad9b43ae953739af4e6bb,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.15
+      value: -6.9
       objectReference: {fileID: 0}
     - target: {fileID: 6741024496154105218, guid: e48a4c6ca6dad9b43ae953739af4e6bb,
         type: 3}
@@ -6761,6 +6761,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6741024496154105219, guid: e48a4c6ca6dad9b43ae953739af4e6bb,
+        type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6741024496154105219, guid: e48a4c6ca6dad9b43ae953739af4e6bb,
+        type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6741024496154105219, guid: e48a4c6ca6dad9b43ae953739af4e6bb,
+        type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 6741024496154105219, guid: e48a4c6ca6dad9b43ae953739af4e6bb,
+        type: 3}
+      propertyPath: InitialModule.startLifetime.minMaxState
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e48a4c6ca6dad9b43ae953739af4e6bb, type: 3}
