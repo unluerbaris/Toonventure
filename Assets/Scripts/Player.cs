@@ -13,8 +13,10 @@ public class Player : MonoBehaviour
     [SerializeField] float damageAllowTime = 1f;
     [Range(0, 1)] [SerializeField] float playerSoundVol = 0.25f;
     [Range(0, 1)] [SerializeField] float loseSoundVol = 1f;
+    [Range(0, 1)] [SerializeField] float enemyDeathVolume = 0.25f;
     [SerializeField] AudioClip takeDamageSFX;
     [SerializeField] AudioClip loseSFX;
+    [SerializeField] AudioClip enemyDeathSFX;
     Vector2 deathAnimation = new Vector2(-5f, 20f);
 
     bool isAlive = true;
@@ -137,6 +139,7 @@ public class Player : MonoBehaviour
 
         if (myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Enemy")))
         {
+            AudioSource.PlayClipAtPoint(enemyDeathSFX, audioListener.transform.position, enemyDeathVolume);
             enemyAnim.SetTrigger("die");
             Destroy(enemyCollider.gameObject, 0.4f);
         }
