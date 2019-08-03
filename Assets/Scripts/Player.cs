@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     [SerializeField] float runSpeed = 5f;
     [SerializeField] float jumpForce = 20f;
     [SerializeField] float climbSpeed = 5f;
+    [SerializeField] int enemyPoints = 50;
     public int playerLives = 3;
     [SerializeField] float damageAllowTime = 1f;
     [Range(0, 1)] [SerializeField] float playerSoundVol = 0.25f;
@@ -27,6 +28,7 @@ public class Player : MonoBehaviour
     BoxCollider2D myFeetCollider;
     LivesMeter livesMeter;
     GameObject audioListener;
+    GameSession gameSession;
     float gravityScaleAtStart;
     float timeSinceLastHit; //Enemy only can hit once in per X second;
 
@@ -37,6 +39,7 @@ public class Player : MonoBehaviour
         myBodyCollider2d = GetComponent<CapsuleCollider2D>();
         myFeetCollider = GetComponent<BoxCollider2D>();
         livesMeter = FindObjectOfType<LivesMeter>();
+        gameSession = FindObjectOfType<GameSession>();
         audioListener = GameObject.FindWithTag("AudioListener");
         gravityScaleAtStart = myRigidbody.gravityScale;
     }
@@ -141,7 +144,8 @@ public class Player : MonoBehaviour
         {
             AudioSource.PlayClipAtPoint(enemyDeathSFX, audioListener.transform.position, enemyDeathVolume);
             enemyAnim.SetTrigger("die");
-            Destroy(enemyCollider.gameObject, 0.4f);
+            gameSession.AddToScore(enemyPoints);
+            Destroy(enemyCollider.gameObject, 0.3f);
         }
     }
 }
