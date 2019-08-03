@@ -30,7 +30,8 @@ public class Player : MonoBehaviour
     GameObject audioListener;
     GameSession gameSession;
     float gravityScaleAtStart;
-    float timeSinceLastHit; //Enemy only can hit once in per X second;
+    float timeSinceLastHit; //Enemy only can hit once in per X second
+    float enterClimbingState; // Timer to control climbing animation
 
     void Start()
     {
@@ -77,6 +78,8 @@ public class Player : MonoBehaviour
     {
         if (!myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Climbing")) || Input.GetButtonDown("Jump"))
         {
+            enterClimbingState = 0;
+            myAnimator.speed = 1;
             myAnimator.SetBool("climbing", false);
             myRigidbody.gravityScale = gravityScaleAtStart;
             return;
@@ -89,7 +92,14 @@ public class Player : MonoBehaviour
         bool playerHasVerticalSpeed = Mathf.Abs(myRigidbody.velocity.y) > Mathf.Epsilon;
         if (playerHasVerticalSpeed)
         {
+            enterClimbingState += Time.deltaTime;
+            myAnimator.speed = 1;
             myAnimator.SetBool("climbing", playerHasVerticalSpeed);
+        }
+        else if(!playerHasVerticalSpeed && myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Climbing")) && enterClimbingState >= 0.1f)
+        {
+            myAnimator.speed = 0;
+           // myAnimator.SetBool("climbing", false);
         }
     }
 
