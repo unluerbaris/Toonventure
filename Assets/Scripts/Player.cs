@@ -107,7 +107,7 @@ public class Player : MonoBehaviour
     {
         timeSinceLastHit += Time.deltaTime;
 
-        if (myBodyCollider2d.IsTouchingLayers(LayerMask.GetMask("Enemy")))
+        if (myBodyCollider2d.IsTouchingLayers(LayerMask.GetMask("Enemy")) || playerLives <= 0)
         {
             if (playerLives > 1 && timeSinceLastHit >= damageAllowTime) //TODO inform player with effect 
                                                                         //when it takes damage
