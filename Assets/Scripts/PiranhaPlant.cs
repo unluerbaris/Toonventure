@@ -16,7 +16,10 @@ public class PiranhaPlant : MonoBehaviour
 
     void Update()
     {
-        Attack();
+        if (player != null)
+        {
+            Attack();
+        }
     }
 
     private void Attack() // TODO hurt the player

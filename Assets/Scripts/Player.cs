@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 
 public class Player : MonoBehaviour
@@ -9,19 +6,20 @@ public class Player : MonoBehaviour
     [SerializeField] float runSpeed = 5f;
     [SerializeField] float jumpForce = 20f;
     [SerializeField] float climbSpeed = 5f;
-    [SerializeField] int enemyPoints = 50;
+
     public int playerLives = 3;
     [SerializeField] float damageAllowTime = 1f;
-    [Range(0, 1)] [SerializeField] float playerSoundVol = 0.25f;
+    [Range(0, 1)] [SerializeField] float takeDamageSoundVol = 0.25f;
     [Range(0, 1)] [SerializeField] float loseSoundVol = 1f;
-    [Range(0, 1)] [SerializeField] float enemyDeathVolume = 0.25f;
+
     [SerializeField] AudioClip takeDamageSFX;
     [SerializeField] AudioClip loseSFX;
-    [SerializeField] AudioClip enemyDeathSFX;
+
     Vector2 deathAnimation = new Vector2(-5f, 20f);
 
     bool isAlive = true;
 
+    EnemyStats enemyStats;
     Rigidbody2D myRigidbody;
     Animator myAnimator;
     CapsuleCollider2D myBodyCollider2d;
@@ -112,7 +110,7 @@ public class Player : MonoBehaviour
             if (playerLives > 1 && timeSinceLastHit >= damageAllowTime) //TODO inform player with effect 
                                                                         //when it takes damage
             {
-                AudioSource.PlayClipAtPoint(takeDamageSFX, audioListener.transform.position, playerSoundVol);
+                AudioSource.PlayClipAtPoint(takeDamageSFX, audioListener.transform.position, takeDamageSoundVol);
                 LoseLives();
                 livesMeter.PlayerLivesMeter(playerLives);
                 timeSinceLastHit = 0;
@@ -149,12 +147,13 @@ public class Player : MonoBehaviour
     public void DestroyEnemy(Collider2D enemyCollider) //TODO fix the destroy enemy system
     {
         Animator enemyAnim = enemyCollider.gameObject.GetComponent<Animator>();
+        enemyStats = enemyCollider.GetComponent<EnemyStats>();
 
         if (myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Enemy")))
         {
-            AudioSource.PlayClipAtPoint(enemyDeathSFX, audioListener.transform.position, enemyDeathVolume);
+            enemyStats.PlayDeathSFX();
             enemyAnim.SetTrigger("die");
-            gameSession.AddToScore(enemyPoints);
+            gameSession.AddToScore(enemyStats.EnemyPoints());
             Destroy(enemyCollider.gameObject, 0.3f);
         }
     }

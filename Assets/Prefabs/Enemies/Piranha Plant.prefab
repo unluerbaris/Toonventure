@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 9182613030350629335}
   - component: {fileID: 9182613030350629332}
   - component: {fileID: 478773201}
-  - component: {fileID: 674332002}
+  - component: {fileID: 8257308716018463301}
   m_Layer: 12
   m_Name: Piranha Plant
   m_TagString: Untagged
@@ -135,15 +135,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e44de198a45dc3145afbe861b7cf0041, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &674332002
-MonoBehaviour:
+  playerPos: {fileID: 0}
+--- !u!61 &8257308716018463301
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9182613030350629322}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e44de198a45dc3145afbe861b7cf0041, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.065449715, y: -0.32716584}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 3.8125, y: 2.8125}
+    newSize: {x: 0.61, y: 0.45}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.666315, y: 2.1581683}
+  m_EdgeRadius: 0

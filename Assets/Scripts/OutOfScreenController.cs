@@ -11,7 +11,7 @@ public class OutOfScreenController : MonoBehaviour
         player = FindObjectOfType<Player>();
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    private void OnTriggerExit2D(Collider2D collision)  // When player falls down it dies
     {
         if (collision.tag == "Player")
         {
