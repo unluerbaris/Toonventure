@@ -82,7 +82,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPoints: 50
-  enemyDeathSFX: {fileID: 8300000, guid: 159652fe20de54484882d0914255f574, type: 3}
+  enemyDeathSFX: {fileID: 8300000, guid: 7a587bc83d1cb470e828ba6410f90a75, type: 3}
   enemyDeathVolume: 0.25
 --- !u!114 &5605357060862542682
 MonoBehaviour:
