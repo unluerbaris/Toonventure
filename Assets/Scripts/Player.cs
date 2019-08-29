@@ -151,6 +151,7 @@ public class Player : MonoBehaviour
 
         if (myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Enemy")))
         {
+            enemyCollider.enabled = false;
             enemyStats.PlayDeathSFX();
             enemyAnim.SetTrigger("die");
             gameSession.AddToScore(enemyStats.EnemyPoints());
