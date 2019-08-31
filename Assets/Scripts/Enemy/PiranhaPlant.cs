@@ -22,7 +22,7 @@ public class PiranhaPlant : MonoBehaviour
         }
     }
 
-    private void Attack() // TODO hurt the player
+    private void Attack() 
     {
         FlipSprite();
         if (InAttackRange())

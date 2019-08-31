@@ -129,7 +129,8 @@ public class Player : MonoBehaviour
                 myAnimator.SetTrigger("death");
                 myBodyCollider2d.enabled = false;
                 myFeetCollider.enabled = false;
-                Destroy(gameObject, 1f);
+                StartCoroutine(gameSession.LoadGameOverScreen()); // enable the game over canvas
+                Destroy(gameObject, 3f);
             }
         }
     }

@@ -7,10 +7,11 @@ public class GameSession : MonoBehaviour
 {
     [SerializeField] int score;
     [SerializeField] Text scoreText;
+    [SerializeField] Canvas gameOverCanvas;
 
-    // Start is called before the first frame update
     void Start()
     {
+        gameOverCanvas.enabled = false;
         scoreText.text = score.ToString();
     }
 
@@ -18,6 +19,12 @@ public class GameSession : MonoBehaviour
     {
         score += pointsToAdd;
         scoreText.text = score.ToString();
+    }
+
+    public IEnumerator LoadGameOverScreen()
+    {
+        yield return new WaitForSeconds(2f); // wait before enable game over screen
+        gameOverCanvas.enabled = true;
     }
 
 }
