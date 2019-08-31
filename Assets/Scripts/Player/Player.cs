@@ -11,9 +11,12 @@ public class Player : MonoBehaviour
     [SerializeField] float damageAllowTime = 1f;
     [Range(0, 1)] [SerializeField] float takeDamageSoundVol = 0.25f;
     [Range(0, 1)] [SerializeField] float loseSoundVol = 1f;
+    [Range(0, 1)] [SerializeField] float jumpSFXVolume = 1f;
+
 
     [SerializeField] AudioClip takeDamageSFX;
     [SerializeField] AudioClip loseSFX;
+    [SerializeField] AudioClip jumpSFX;
 
     Vector2 deathAnimation = new Vector2(-5f, 20f);
 
@@ -67,6 +70,7 @@ public class Player : MonoBehaviour
         if (!myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Ground"))) { return; }
         if (Input.GetButtonDown("Jump"))
         {
+            AudioSource.PlayClipAtPoint(jumpSFX, audioListener.transform.position, jumpSFXVolume);
             Vector2 jumpVelocity = new Vector2(0f, jumpForce);
             myRigidbody.velocity += jumpVelocity;
         }

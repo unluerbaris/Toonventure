@@ -46,7 +46,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e93b04fc46c37bb4aae7760ed55b2897, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  carrotPickUpSFX: {fileID: 8300000, guid: efa92ad6172e1c840a7c66ea6b36cf69, type: 3}
+  score: 50
+  carrotPickUpSFX: {fileID: 8300000, guid: 2de0f0994b9593b43b927cecf83555d6, type: 3}
   soundVol: 0.25
 --- !u!212 &3035706637006901775
 SpriteRenderer:
