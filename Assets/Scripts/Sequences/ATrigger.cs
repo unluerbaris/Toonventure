@@ -20,10 +20,10 @@ public class ATrigger : MonoBehaviour
 
     IEnumerator TextPlayer()
     {
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(1f);
         textBox.GetComponent<Text>().text = "Hey try to move" + Environment.NewLine
                                           + "Left: A" + Environment.NewLine + "Right: D"
-                                          + Environment.NewLine + "SPACE for JUMP";
+                                          + Environment.NewLine + "Jump: SPACE";
         yield return new WaitForSeconds(6f);
         textBox.GetComponent<Text>().text = "";
     }

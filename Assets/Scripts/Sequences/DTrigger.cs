@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System;
 
-public class BTrigger : MonoBehaviour
+public class DTrigger : MonoBehaviour
 {
     [SerializeField] GameObject textBox;
     bool isTriggered = false;
@@ -20,8 +20,8 @@ public class BTrigger : MonoBehaviour
 
     IEnumerator TextPlayer()
     {
-        textBox.GetComponent<Text>().text = "Climb up: W";
-        yield return new WaitForSeconds(3f);
+        textBox.GetComponent<Text>().text = "Try to jump on that Slug's head" + Environment.NewLine;
+        yield return new WaitForSeconds(2.5f);
         textBox.GetComponent<Text>().text = "";
     }
 }
