@@ -13,7 +13,7 @@ public class Health : MonoBehaviour
 
     //Vector2 deathAnimation = new Vector2(-5f, 20f);
 
-    private void TakeDamage(float damage)
+    public void TakeDamage(float damage)
     {
         //takeDamage.Invoke(damage);
         health = (int)Mathf.Max(health - damage, 0);
@@ -27,7 +27,7 @@ public class Health : MonoBehaviour
     private void Die()
     {
         isDead = true;
-        GetComponent<Animator>().SetTrigger("death");
+        GetComponent<Animator>().SetTrigger("die");
         Debug.Log($"{gameObject.name} is dead");
     }
 }

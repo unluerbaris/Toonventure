@@ -40,13 +40,14 @@ GameObject:
   m_Component:
   - component: {fileID: 131667055438284399}
   - component: {fileID: 7484126297259746248}
-  - component: {fileID: 5605357060862542682}
   - component: {fileID: 131667055438284398}
   - component: {fileID: 131667055438284396}
   - component: {fileID: 131667055438284397}
   - component: {fileID: 131667055438284387}
   - component: {fileID: 8067782105876272415}
   - component: {fileID: 5598647534381096865}
+  - component: {fileID: -4377572309266462093}
+  - component: {fileID: 4622430452010643922}
   m_Layer: 12
   m_Name: Slug Enemy
   m_TagString: Untagged
@@ -84,18 +85,6 @@ MonoBehaviour:
   enemyPoints: 50
   enemyDeathSFX: {fileID: 8300000, guid: 7a587bc83d1cb470e828ba6410f90a75, type: 3}
   enemyDeathVolume: 0.25
---- !u!114 &5605357060862542682
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 131667055438284384}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d94d1e119d9f90e468a8caa2c726720a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &131667055438284398
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125,6 +114,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -136,6 +126,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -254,3 +245,29 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.745901, y: 0.17189384}
   m_EdgeRadius: 0
+--- !u!114 &-4377572309266462093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 131667055438284384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7db3f7a656ef4838936e0312a3d4ca3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 1
+  damageAllowTime: 1
+--- !u!114 &4622430452010643922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 131667055438284384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7504a76736244f1d87b252702eb03c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

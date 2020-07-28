@@ -203,7 +203,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 129295602}
-  - component: {fileID: 129295606}
   - component: {fileID: 129295604}
   - component: {fileID: 129295603}
   - component: {fileID: 129295605}
@@ -1134,18 +1133,6 @@ PolygonCollider2D:
       - {x: -24.330236, y: -6.8193364}
       - {x: 244.69618, y: -6.6577654}
       - {x: 244.80908, y: 7.8460836}
---- !u!114 &129295606
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 129295601}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 403c720430920a34b8f2c3a6150eb333, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &166648821 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7545710010511196453, guid: 1e93612a821817340ba57858be744af7,
@@ -9198,7 +9185,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bomber Bee
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5368065674801325828, guid: 0a0b45cb545e7a0419bcc0832bb28a8c, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 0a0b45cb545e7a0419bcc0832bb28a8c, type: 3}
 --- !u!4 &4974254464812765567 stripped
 Transform:
@@ -9551,7 +9539,7 @@ PrefabInstance:
     - target: {fileID: 7869843300388581162, guid: ab3e11a3a39505147b0fa0c7bc2aceed,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -19.671112
+      value: -19.67111
       objectReference: {fileID: 0}
     - target: {fileID: 7869843300388581162, guid: ab3e11a3a39505147b0fa0c7bc2aceed,
         type: 3}
@@ -9566,12 +9554,12 @@ PrefabInstance:
     - target: {fileID: 7869843300548209418, guid: ab3e11a3a39505147b0fa0c7bc2aceed,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.5489094
+      value: -0.5489037
       objectReference: {fileID: 0}
     - target: {fileID: 7869843300548209418, guid: ab3e11a3a39505147b0fa0c7bc2aceed,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -13.624075
+      value: -13.626263
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab3e11a3a39505147b0fa0c7bc2aceed, type: 3}

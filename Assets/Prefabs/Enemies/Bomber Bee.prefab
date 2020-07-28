@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 461284414361821745}
   - component: {fileID: 6947362010671810454}
-  - component: {fileID: 5368065674801325828}
   - component: {fileID: 461284414361821746}
   - component: {fileID: 461284414361821747}
   - component: {fileID: 461284414361821757}
@@ -18,6 +17,7 @@ GameObject:
   - component: {fileID: 5334352694579985407}
   - component: {fileID: 461284414361821759}
   - component: {fileID: 461284414361821756}
+  - component: {fileID: 2063143288847278588}
   m_Layer: 12
   m_Name: Bomber Bee
   m_TagString: Untagged
@@ -55,18 +55,6 @@ MonoBehaviour:
   enemyPoints: 50
   enemyDeathSFX: {fileID: 8300000, guid: 159652fe20de54484882d0914255f574, type: 3}
   enemyDeathVolume: 0.25
---- !u!114 &5368065674801325828
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 461284414361821758}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d94d1e119d9f90e468a8caa2c726720a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &461284414361821746
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -81,6 +69,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -92,6 +81,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -237,6 +227,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bomb: {fileID: 426681664071880987, guid: 32885b960c202c242a3cdbe27145ab23, type: 3}
+--- !u!114 &2063143288847278588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 461284414361821758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7db3f7a656ef4838936e0312a3d4ca3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 1
+  damageAllowTime: 1
 --- !u!1 &461284415694487050
 GameObject:
   m_ObjectHideFlags: 0

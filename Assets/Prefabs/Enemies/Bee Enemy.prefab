@@ -10,13 +10,13 @@ GameObject:
   m_Component:
   - component: {fileID: 4974254464597988065}
   - component: {fileID: 2524031604407760710}
-  - component: {fileID: 653557294704252884}
   - component: {fileID: 4974254464597988064}
   - component: {fileID: 4974254464597988066}
   - component: {fileID: 4974254464597988067}
   - component: {fileID: 4974254464597988077}
   - component: {fileID: 3111241312712835473}
   - component: {fileID: 678275722067839791}
+  - component: {fileID: 3674159459792063318}
   m_Layer: 12
   m_Name: Bee Enemy
   m_TagString: Untagged
@@ -54,18 +54,6 @@ MonoBehaviour:
   enemyPoints: 50
   enemyDeathSFX: {fileID: 8300000, guid: 159652fe20de54484882d0914255f574, type: 3}
   enemyDeathVolume: 0.25
---- !u!114 &653557294704252884
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4974254464597988078}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d94d1e119d9f90e468a8caa2c726720a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &4974254464597988064
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -95,6 +83,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -106,6 +95,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -224,6 +214,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.7571167, y: 0.31753182}
   m_EdgeRadius: 0
+--- !u!114 &3674159459792063318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4974254464597988078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7db3f7a656ef4838936e0312a3d4ca3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 1
+  damageAllowTime: 1
 --- !u!1 &4974254464909364954
 GameObject:
   m_ObjectHideFlags: 0

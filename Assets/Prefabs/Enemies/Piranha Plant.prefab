@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 9182613030350629332}
   - component: {fileID: 478773201}
   - component: {fileID: 8257308716018463301}
+  - component: {fileID: 9113301259203014415}
   m_Layer: 12
   m_Name: Piranha Plant
   m_TagString: Untagged
@@ -49,6 +50,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -60,6 +62,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -135,7 +138,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e44de198a45dc3145afbe861b7cf0041, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPos: {fileID: 0}
 --- !u!61 &8257308716018463301
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -162,3 +164,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.666315, y: 2.1581683}
   m_EdgeRadius: 0
+--- !u!114 &9113301259203014415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9182613030350629322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7db3f7a656ef4838936e0312a3d4ca3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 1
+  damageAllowTime: 1
