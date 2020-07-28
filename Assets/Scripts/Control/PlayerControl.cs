@@ -13,7 +13,7 @@ public class PlayerControl : MonoBehaviour
     {
         //if (!isAlive) { return; }
         MoveInput();
-        //Jump();
+        JumpInput();
         //Climb();
         //Die();
     }
@@ -22,5 +22,13 @@ public class PlayerControl : MonoBehaviour
     {
         float controlThrow = Input.GetAxis("Horizontal"); //-1 to +1
         mover.Move(controlThrow);
+    }
+
+    private void JumpInput()
+    {
+        if (Input.GetButtonDown("Jump"))
+        {
+            mover.Jump();
+        }
     }
 }

@@ -12,6 +12,8 @@ public class Mover : MonoBehaviour
     Animator myAnimator;
     BoxCollider2D myFeetCollider;
 
+    Vector2 velocity;
+    bool hasHorizontalSpeed;
     float gravityScaleAtStart;
     float enterClimbingState; // Timer to control climbing animation
 
@@ -25,22 +27,19 @@ public class Mover : MonoBehaviour
 
     public void Move(float controlThrow)
     {
-        
-        Vector2 playerVelocity = new Vector2(controlThrow * moveSpeed, myRigidbody.velocity.y);
-        myRigidbody.velocity = playerVelocity;
-        bool playerHasHorizontalSpeed = Mathf.Abs(myRigidbody.velocity.x) > Mathf.Epsilon;
-        myAnimator.SetBool("running", playerHasHorizontalSpeed);
+        velocity = new Vector2(controlThrow * moveSpeed, myRigidbody.velocity.y);
+        myRigidbody.velocity = velocity;
+        hasHorizontalSpeed = Mathf.Abs(myRigidbody.velocity.x) > Mathf.Epsilon;
+        myAnimator.SetBool("moving", hasHorizontalSpeed);
         FlipSprite();
     }
 
     public void Jump()
     {
         if (!myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Ground"))) { return; }
-        if (Input.GetButtonDown("Jump"))
-        {
-            Vector2 jumpVelocity = new Vector2(0f, jumpForce);
-            myRigidbody.velocity += jumpVelocity;
-        }
+
+        Vector2 jumpVelocity = new Vector2(0f, jumpForce);
+        myRigidbody.velocity += jumpVelocity;
     }
 
     public void Climb()//TODO check jump on the ladder action??? And better climbing function??
@@ -72,7 +71,7 @@ public class Mover : MonoBehaviour
         }
     }
 
-    public void FlipSprite()
+    private void FlipSprite()
     {
         bool playerHasHorizontalSpeed = Mathf.Abs(myRigidbody.velocity.x) > Mathf.Epsilon;
         if (playerHasHorizontalSpeed)

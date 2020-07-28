@@ -40,7 +40,6 @@ GameObject:
   m_Component:
   - component: {fileID: 131667055438284399}
   - component: {fileID: 7484126297259746248}
-  - component: {fileID: 131667055438284398}
   - component: {fileID: 131667055438284396}
   - component: {fileID: 131667055438284397}
   - component: {fileID: 131667055438284387}
@@ -48,6 +47,7 @@ GameObject:
   - component: {fileID: 5598647534381096865}
   - component: {fileID: -4377572309266462093}
   - component: {fileID: 4622430452010643922}
+  - component: {fileID: 4942590325028988031}
   m_Layer: 12
   m_Name: Slug Enemy
   m_TagString: Untagged
@@ -85,21 +85,6 @@ MonoBehaviour:
   enemyPoints: 50
   enemyDeathSFX: {fileID: 8300000, guid: 7a587bc83d1cb470e828ba6410f90a75, type: 3}
   enemyDeathVolume: 0.25
---- !u!114 &131667055438284398
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 131667055438284384}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf1b37cf7507fe844b12bb201c94426f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 1
-  groundDetection: {fileID: 131667055229540951}
-  groundDetectionRayDistance: 2
 --- !u!212 &131667055438284396
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -271,3 +256,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7504a76736244f1d87b252702eb03c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4942590325028988031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 131667055438284384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf1b37cf7507fe844b12bb201c94426f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 1
+  groundDetection: {fileID: 131667055229540951}
+  groundDetectionRayDistance: 2
