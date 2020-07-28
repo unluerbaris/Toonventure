@@ -6,42 +6,33 @@ public class Player : MonoBehaviour
     [SerializeField] float runSpeed = 5f;
     [SerializeField] float jumpForce = 20f;
     [SerializeField] float climbSpeed = 5f;
-    [SerializeField] int health = 3;
-    [SerializeField] float damageAllowTime = 1f;
-
-    Vector2 deathAnimation = new Vector2(-5f, 20f);
-
-    bool isAlive = true;
-
-    EnemyStats enemyStats;
+    
     Rigidbody2D myRigidbody;
     Animator myAnimator;
-    CapsuleCollider2D myBodyCollider2d;
+    
     BoxCollider2D myFeetCollider;
-    LivesMeter livesMeter;
-    GameSession gameSession;
+    
     float gravityScaleAtStart;
-    float timeSinceLastHit; //Enemy only can hit once in per X second
+    
     float enterClimbingState; // Timer to control climbing animation
 
     void Start()
     {
         myRigidbody = GetComponent<Rigidbody2D>();
         myAnimator = GetComponent<Animator>();
-        myBodyCollider2d = GetComponent<CapsuleCollider2D>();
+        
         myFeetCollider = GetComponent<BoxCollider2D>();
-        livesMeter = FindObjectOfType<LivesMeter>();
-        gameSession = FindObjectOfType<GameSession>();
+        
         gravityScaleAtStart = myRigidbody.gravityScale;
     }
 
     void Update()
     {
-        if (!isAlive) { return; }
+        //if (!isAlive) { return; }
         Run();
         Jump();
         Climb();
-        Die();
+        //Die();
     }
 
     private void Run()
@@ -93,60 +84,12 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void Die()
-    {
-        timeSinceLastHit += Time.deltaTime;
-
-        if (myBodyCollider2d.IsTouchingLayers(LayerMask.GetMask("Enemy")) || health <= 0)
-        {
-            if (health > 1 && timeSinceLastHit >= damageAllowTime) //TODO inform player with effect 
-                                                                        //when it takes damage
-            {
-                LoseLives();
-                livesMeter.PlayerLivesMeter(health);
-                timeSinceLastHit = 0;
-            }
-            else if (timeSinceLastHit >= damageAllowTime)
-            {
-                LoseLives();
-                livesMeter.PlayerLivesMeter(health);
-                isAlive = false;
-                myRigidbody.velocity = deathAnimation;
-                myAnimator.SetTrigger("death");
-                myBodyCollider2d.enabled = false;
-                myFeetCollider.enabled = false;
-                StartCoroutine(gameSession.LoadGameOverScreen()); // enable the game over canvas
-                Destroy(gameObject, 3f);
-            }
-        }
-    }
-
     private void FlipSprite()
     {
         bool playerHasHorizontalSpeed = Mathf.Abs(myRigidbody.velocity.x) > Mathf.Epsilon;
         if (playerHasHorizontalSpeed)
         {
             transform.localScale = new Vector2(Mathf.Sign(myRigidbody.velocity.x), 1f);
-        }
-    }
-
-    private void LoseLives()
-    {
-        health--;
-    }
-
-    public void DestroyEnemy(Collider2D enemyCollider) //TODO fix the destroy enemy system
-    {
-        Animator enemyAnim = enemyCollider.gameObject.GetComponent<Animator>();
-        enemyStats = enemyCollider.GetComponent<EnemyStats>();
-
-        if (myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Enemy")))
-        {
-            enemyCollider.enabled = false;
-            enemyStats.PlayDeathSFX();
-            enemyAnim.SetTrigger("die");
-            gameSession.AddToScore(enemyStats.EnemyPoints());
-            Destroy(enemyCollider.gameObject, 0.3f);
         }
     }
 }
