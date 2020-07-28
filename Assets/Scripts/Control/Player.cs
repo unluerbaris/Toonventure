@@ -6,17 +6,8 @@ public class Player : MonoBehaviour
     [SerializeField] float runSpeed = 5f;
     [SerializeField] float jumpForce = 20f;
     [SerializeField] float climbSpeed = 5f;
-
-    public int playerLives = 3;
+    [SerializeField] int health = 3;
     [SerializeField] float damageAllowTime = 1f;
-    [Range(0, 1)] [SerializeField] float takeDamageSoundVol = 0.25f;
-    [Range(0, 1)] [SerializeField] float loseSoundVol = 1f;
-    [Range(0, 1)] [SerializeField] float jumpSFXVolume = 1f;
-
-
-    [SerializeField] AudioClip takeDamageSFX;
-    [SerializeField] AudioClip loseSFX;
-    [SerializeField] AudioClip jumpSFX;
 
     Vector2 deathAnimation = new Vector2(-5f, 20f);
 
@@ -28,7 +19,6 @@ public class Player : MonoBehaviour
     CapsuleCollider2D myBodyCollider2d;
     BoxCollider2D myFeetCollider;
     LivesMeter livesMeter;
-    GameObject audioListener;
     GameSession gameSession;
     float gravityScaleAtStart;
     float timeSinceLastHit; //Enemy only can hit once in per X second
@@ -42,7 +32,6 @@ public class Player : MonoBehaviour
         myFeetCollider = GetComponent<BoxCollider2D>();
         livesMeter = FindObjectOfType<LivesMeter>();
         gameSession = FindObjectOfType<GameSession>();
-        audioListener = GameObject.FindWithTag("AudioListener");
         gravityScaleAtStart = myRigidbody.gravityScale;
     }
 
@@ -70,7 +59,6 @@ public class Player : MonoBehaviour
         if (!myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Ground"))) { return; }
         if (Input.GetButtonDown("Jump"))
         {
-            AudioSource.PlayClipAtPoint(jumpSFX, audioListener.transform.position, jumpSFXVolume);
             Vector2 jumpVelocity = new Vector2(0f, jumpForce);
             myRigidbody.velocity += jumpVelocity;
         }
@@ -109,21 +97,19 @@ public class Player : MonoBehaviour
     {
         timeSinceLastHit += Time.deltaTime;
 
-        if (myBodyCollider2d.IsTouchingLayers(LayerMask.GetMask("Enemy")) || playerLives <= 0)
+        if (myBodyCollider2d.IsTouchingLayers(LayerMask.GetMask("Enemy")) || health <= 0)
         {
-            if (playerLives > 1 && timeSinceLastHit >= damageAllowTime) //TODO inform player with effect 
+            if (health > 1 && timeSinceLastHit >= damageAllowTime) //TODO inform player with effect 
                                                                         //when it takes damage
             {
-                AudioSource.PlayClipAtPoint(takeDamageSFX, audioListener.transform.position, takeDamageSoundVol);
                 LoseLives();
-                livesMeter.PlayerLivesMeter(playerLives);
+                livesMeter.PlayerLivesMeter(health);
                 timeSinceLastHit = 0;
             }
             else if (timeSinceLastHit >= damageAllowTime)
             {
-                AudioSource.PlayClipAtPoint(loseSFX, audioListener.transform.position, loseSoundVol);
                 LoseLives();
-                livesMeter.PlayerLivesMeter(playerLives);
+                livesMeter.PlayerLivesMeter(health);
                 isAlive = false;
                 myRigidbody.velocity = deathAnimation;
                 myAnimator.SetTrigger("death");
@@ -146,7 +132,7 @@ public class Player : MonoBehaviour
 
     private void LoseLives()
     {
-        playerLives--;
+        health--;
     }
 
     public void DestroyEnemy(Collider2D enemyCollider) //TODO fix the destroy enemy system
