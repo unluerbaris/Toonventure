@@ -13,7 +13,9 @@ public class Mover : MonoBehaviour
     BoxCollider2D myFeetCollider;
 
     Vector2 velocity;
+    Vector2 climbVelocity;
     bool hasHorizontalSpeed;
+    bool hasVerticalSpeed;
     float gravityScaleAtStart;
     float enterClimbingState; // Timer to control climbing animation
 
@@ -42,7 +44,7 @@ public class Mover : MonoBehaviour
         myRigidbody.velocity += jumpVelocity;
     }
 
-    public void Climb()//TODO check jump on the ladder action??? And better climbing function??
+    public void Climb(float climbThrow)//TODO check jump on the ladder action??? And better climbing function??
     {
         if (!myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Climbing")) || Input.GetButtonDown("Jump"))
         {
@@ -52,19 +54,19 @@ public class Mover : MonoBehaviour
             myRigidbody.gravityScale = gravityScaleAtStart;
             return;
         }
-        float climbThrow = Input.GetAxis("Vertical"); //-1 to +1
-        Vector2 climbVelocity = new Vector2(myRigidbody.velocity.x, climbThrow * climbSpeed);
+        
+        climbVelocity = new Vector2(myRigidbody.velocity.x, climbThrow * climbSpeed);
         myRigidbody.velocity = climbVelocity;
         myRigidbody.gravityScale = 0f;
 
-        bool playerHasVerticalSpeed = Mathf.Abs(myRigidbody.velocity.y) > Mathf.Epsilon;
-        if (playerHasVerticalSpeed)
+        hasVerticalSpeed = Mathf.Abs(myRigidbody.velocity.y) > Mathf.Epsilon;
+        if (hasVerticalSpeed)
         {
             enterClimbingState += Time.deltaTime;
             myAnimator.speed = 1;
-            myAnimator.SetBool("climbing", playerHasVerticalSpeed);
+            myAnimator.SetBool("climbing", hasVerticalSpeed);
         }
-        else if (!playerHasVerticalSpeed && myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Climbing")) && enterClimbingState >= 0.1f)
+        else if (!hasVerticalSpeed && myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Climbing")) && enterClimbingState >= 0.1f)
         {
             myAnimator.speed = 0;
             // myAnimator.SetBool("climbing", false);

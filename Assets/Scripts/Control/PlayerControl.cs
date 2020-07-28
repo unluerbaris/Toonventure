@@ -3,6 +3,8 @@
 public class PlayerControl : MonoBehaviour
 {
     Mover mover;
+    float climbThrow;
+    float controlThrow;
 
     private void Start()
     {
@@ -14,13 +16,13 @@ public class PlayerControl : MonoBehaviour
         //if (!isAlive) { return; }
         MoveInput();
         JumpInput();
-        //Climb();
+        ClimbInput();
         //Die();
     }
 
     private void MoveInput()
     {
-        float controlThrow = Input.GetAxis("Horizontal"); //-1 to +1
+        controlThrow = Input.GetAxis("Horizontal"); //-1 to +1
         mover.Move(controlThrow);
     }
 
@@ -30,5 +32,11 @@ public class PlayerControl : MonoBehaviour
         {
             mover.Jump();
         }
+    }
+
+    private void ClimbInput()
+    {
+        climbThrow = Input.GetAxis("Vertical"); //-1 to +1
+        mover.Climb(climbThrow);
     }
 }
