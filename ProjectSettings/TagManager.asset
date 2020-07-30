@@ -7,6 +7,8 @@ TagManager:
   - Ground
   - Background
   - AudioListener
+  - Enemy
+  - PlayerDisable
   layers:
   - Default
   - TransparentFX

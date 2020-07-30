@@ -5,7 +5,6 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     [SerializeField] int health = 1;
-    [SerializeField] float damageAllowTime = 1f;
 
     //float timeSinceLastHit; //Enemy only can hit once in per X second
     bool isDead = false;

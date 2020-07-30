@@ -50,7 +50,7 @@ GameObject:
   - component: {fileID: 4942590325028988031}
   m_Layer: 12
   m_Name: Slug Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

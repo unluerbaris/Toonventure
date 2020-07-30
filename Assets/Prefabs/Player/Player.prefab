@@ -15,6 +15,9 @@ GameObject:
   - component: {fileID: 1404561897}
   - component: {fileID: 1404561896}
   - component: {fileID: 1781558144}
+  - component: {fileID: 554273635}
+  - component: {fileID: 554273641}
+  - component: {fileID: 554273642}
   m_Layer: 10
   m_Name: Player
   m_TagString: Player
@@ -48,17 +51,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97579dacdb6d88e428a65d4f1236a1db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runSpeed: 5
-  jumpForce: 20
-  climbSpeed: 5
-  playerLives: 3
-  damageAllowTime: 1
-  takeDamageSoundVol: 1
-  loseSoundVol: 1
-  jumpSFXVolume: 1
-  takeDamageSFX: {fileID: 8300000, guid: ca67975b87941a74d8bde56e0cb87222, type: 3}
-  loseSFX: {fileID: 8300000, guid: de6ef5a5540d98346a1ca7065334e3b5, type: 3}
-  jumpSFX: {fileID: 8300000, guid: ae19bd08e62fde343a2b13419d81855f, type: 3}
 --- !u!212 &8865379675529938910
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -73,6 +65,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -84,6 +77,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -189,3 +183,44 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.6258478, y: 0.2879094}
   m_EdgeRadius: 0
+--- !u!114 &554273635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8865379675529938908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba7abde2ffd5143489fba35d5e98b27b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collisionAllowTime: 3
+--- !u!114 &554273641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8865379675529938908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e79f2389b4324c3aa9ac8a3c3604a1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 5
+  jumpForce: 20
+  climbSpeed: 5
+--- !u!114 &554273642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8865379675529938908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7db3f7a656ef4838936e0312a3d4ca3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 3

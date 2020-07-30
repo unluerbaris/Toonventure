@@ -1841,41 +1841,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 8865379676308762168}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &554273634 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8865379675529938908, guid: 5e54e98467d5f84458f76ba5e3eb17b3,
-    type: 3}
-  m_PrefabInstance: {fileID: 8865379676308762168}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &554273641
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 554273634}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e79f2389b4324c3aa9ac8a3c3604a1b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 5
-  jumpForce: 20
-  climbSpeed: 5
---- !u!114 &554273642
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 554273634}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7db3f7a656ef4838936e0312a3d4ca3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 3
-  damageAllowTime: 1
 --- !u!1 &623900610
 GameObject:
   m_ObjectHideFlags: 0
@@ -9220,8 +9185,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bomber Bee
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 5368065674801325828, guid: 0a0b45cb545e7a0419bcc0832bb28a8c, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a0b45cb545e7a0419bcc0832bb28a8c, type: 3}
 --- !u!4 &4974254464812765567 stripped
 Transform:
@@ -9937,11 +9901,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2607580716015654423, guid: 5e54e98467d5f84458f76ba5e3eb17b3,
-        type: 3}
-      propertyPath: takeDamageSoundVol
-      value: 0.8
-      objectReference: {fileID: 0}
     - target: {fileID: 8865379675529938908, guid: 5e54e98467d5f84458f76ba5e3eb17b3,
         type: 3}
       propertyPath: m_Name
@@ -10113,10 +10072,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 810803759}
     m_Modifications:
-    - target: {fileID: 478773201, guid: db97ad8aaa25b9e4590a603b4c43a450, type: 3}
-      propertyPath: playerPos
-      value: 
-      objectReference: {fileID: 547325964}
     - target: {fileID: 9182613030350629322, guid: db97ad8aaa25b9e4590a603b4c43a450,
         type: 3}
       propertyPath: m_Name
