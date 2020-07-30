@@ -20,6 +20,14 @@ public class PlayerCollisionBehaviour : MonoBehaviour
         }
     }
 
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Background")
+        {
+            GetComponent<Health>().Die();
+        }
+    }
+
     private void Update()
     {
         timeSinceLastCollision += Time.deltaTime;

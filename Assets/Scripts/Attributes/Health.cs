@@ -21,9 +21,10 @@ public class Health : MonoBehaviour
         }
     }
 
-    private void Die()
+    public void Die()
     {
         isDead = true;
+        health = 0;
 
         // different character types might have different components
         // first check them if they null or not, then disable 

@@ -9,6 +9,7 @@ TagManager:
   - AudioListener
   - Enemy
   - PlayerDisable
+  - Bottom
   layers:
   - Default
   - TransparentFX
