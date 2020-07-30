@@ -5,12 +5,10 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     [SerializeField] int health = 1;
+    [SerializeField] bool hasDeathForce = false;
 
-    //float timeSinceLastHit; //Enemy only can hit once in per X second
     bool isDead = false;
-
-
-    //Vector2 deathAnimation = new Vector2(-5f, 20f);
+    Vector2 deathForce = new Vector2(-5f, 20f);
 
     public void TakeDamage(float damage)
     {
@@ -37,14 +35,26 @@ public class Health : MonoBehaviour
         {
             GetComponent<PolygonCollider2D>().enabled = false;
         }
+        if (GetComponent<CapsuleCollider2D>() != null)
+        {
+            GetComponent<CapsuleCollider2D>().enabled = false;
+        }
 
         if (GetComponent<EnemyAI>() != null)
         {
             GetComponent<EnemyAI>().enabled = false;
         }
+        if (GetComponent<PlayerControl>() != null)
+        {
+            GetComponent<PlayerControl>().enabled = false;
+        }
+
+        if (hasDeathForce)
+        {
+            GetComponent<Rigidbody2D>().AddForce(deathForce, ForceMode2D.Impulse);
+        }
         
         GetComponent<Animator>().SetTrigger("die");
-        Debug.Log($"{gameObject.name} is dead");
     }
 
 

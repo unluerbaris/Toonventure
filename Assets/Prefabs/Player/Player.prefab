@@ -196,6 +196,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collisionAllowTime: 3
+  blinkingSpeed: 0.1
 --- !u!114 &554273641
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -224,3 +225,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 3
+  hasDeathForce: 1

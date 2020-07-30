@@ -12,6 +12,7 @@ public class PlayerCollisionBehaviour : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy" && collision.collider is PolygonCollider2D && readyForCollision)
         {
+            readyForCollision = false;
             gameObject.tag = "PlayerDisable";
             timeSinceLastCollision = 0f;
             GetComponent<Health>().TakeDamage(1);
@@ -26,8 +27,6 @@ public class PlayerCollisionBehaviour : MonoBehaviour
 
     IEnumerator BlinkAnimation()
     {
-        readyForCollision = false;
-
         while (timeSinceLastCollision < collisionAllowTime)
         {
             GetComponent<SpriteRenderer>().color = new Color(255f, 255f, 255f, 0.4f);
