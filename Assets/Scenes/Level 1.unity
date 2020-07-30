@@ -1862,6 +1862,20 @@ MonoBehaviour:
   moveSpeed: 5
   jumpForce: 20
   climbSpeed: 5
+--- !u!114 &554273642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 554273634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7db3f7a656ef4838936e0312a3d4ca3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 3
+  damageAllowTime: 1
 --- !u!1 &623900610
 GameObject:
   m_ObjectHideFlags: 0
