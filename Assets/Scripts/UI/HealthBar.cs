@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LivesMeter : MonoBehaviour
+public class HealthBar : MonoBehaviour
 {
     Animator animator;
 
@@ -11,19 +11,19 @@ public class LivesMeter : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-    public void PlayerLivesMeter(int lives)
+    public void UpdateHealthBar(int lives)
     {
         if (lives == 2)
         {
-            animator.SetTrigger("ThreeToTwo");
+            animator.SetTrigger("toTwo");
         }
         else if (lives == 1)
         {
-            animator.SetTrigger("TwoToOne");
+            animator.SetTrigger("toOne");
         }
         else if (lives == 0)
         {
-            animator.SetTrigger("OneToZero");
+            animator.SetTrigger("toZero");
         }
     }
 }

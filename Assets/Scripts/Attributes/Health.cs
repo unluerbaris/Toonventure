@@ -6,17 +6,22 @@ public class Health : MonoBehaviour
 {
     [SerializeField] int health = 1;
     [SerializeField] bool hasDeathForce = false;
+    [SerializeField] HealthBar healthBar = null;
 
     bool isDead = false;
     Vector2 deathForce = new Vector2(-5f, 20f);
 
     public void TakeDamage(float damage)
     {
-        //takeDamage.Invoke(damage);
         health = (int)Mathf.Max(health - damage, 0);
+
+        if (healthBar != null)
+        {
+            healthBar.UpdateHealthBar(health);
+        }
+       
         if (!isDead && health <= 0)
         {
-            //onDie.Invoke();
             Die();
         }
     }
@@ -25,6 +30,11 @@ public class Health : MonoBehaviour
     {
         isDead = true;
         health = 0;
+
+        if (healthBar != null)
+        {
+            healthBar.UpdateHealthBar(health);
+        }
 
         // different character types might have different components
         // first check them if they null or not, then disable 
