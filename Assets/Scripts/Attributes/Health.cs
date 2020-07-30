@@ -27,7 +27,31 @@ public class Health : MonoBehaviour
     private void Die()
     {
         isDead = true;
+
+        // different character types might have different components
+        // first check them if they null or not, then disable 
+        if (GetComponent<BoxCollider2D>() != null)
+        {
+            GetComponent<BoxCollider2D>().enabled = false;
+        }
+        if (GetComponent<PolygonCollider2D>() != null)
+        {
+            GetComponent<PolygonCollider2D>().enabled = false;
+        }
+
+        if (GetComponent<EnemyAI>() != null)
+        {
+            GetComponent<EnemyAI>().enabled = false;
+        }
+        
         GetComponent<Animator>().SetTrigger("die");
         Debug.Log($"{gameObject.name} is dead");
+    }
+
+
+    // ANIMATION EVENT
+    void DestroyGameObject()
+    {
+        Destroy(gameObject);
     }
 }
