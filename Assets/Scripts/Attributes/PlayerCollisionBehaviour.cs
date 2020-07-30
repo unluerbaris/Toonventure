@@ -8,18 +8,16 @@ public class PlayerCollisionBehaviour : MonoBehaviour
     float timeSinceLastCollision = Mathf.Infinity;
     bool readyForCollision = true;
 
+    // Detects most of the enemies
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Enemy" && collision.collider is PolygonCollider2D && readyForCollision)
         {
-            readyForCollision = false;
-            gameObject.tag = "PlayerDisable";
-            timeSinceLastCollision = 0f;
-            GetComponent<Health>().TakeDamage(1);
-            StartCoroutine(BlinkAnimation());
+            TakeDamageBehaviour();
         }
     }
 
+    // Detects screen border
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Background")
@@ -28,9 +26,27 @@ public class PlayerCollisionBehaviour : MonoBehaviour
         }
     }
 
+    // Detects piranha plant
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Enemy" && readyForCollision)
+        {
+            TakeDamageBehaviour();
+        }
+    }
+
     private void Update()
     {
         timeSinceLastCollision += Time.deltaTime;
+    }
+
+    private void TakeDamageBehaviour()
+    {
+        readyForCollision = false;
+        gameObject.tag = "PlayerDisable";
+        timeSinceLastCollision = 0f;
+        GetComponent<Health>().TakeDamage(1);
+        StartCoroutine(BlinkAnimation());
     }
 
     IEnumerator BlinkAnimation()

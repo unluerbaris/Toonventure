@@ -177,4 +177,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 1
-  damageAllowTime: 1
+  hasDeathForce: 0
+  healthBar: {fileID: 0}
