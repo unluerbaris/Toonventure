@@ -1,29 +1,30 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class HealthBar : MonoBehaviour
+namespace Toon.UI
 {
-    Animator animator;
-
-    private void Start()
+    public class HealthBar : MonoBehaviour
     {
-        animator = GetComponent<Animator>();
-    }
+        Animator animator;
 
-    public void UpdateHealthBar(int lives)
-    {
-        if (lives == 2)
+        private void Start()
         {
-            animator.SetTrigger("toTwo");
+            animator = GetComponent<Animator>();
         }
-        else if (lives == 1)
+
+        public void UpdateHealthBar(int lives)
         {
-            animator.SetTrigger("toOne");
-        }
-        else if (lives == 0)
-        {
-            animator.SetTrigger("toZero");
+            if (lives == 2)
+            {
+                animator.SetTrigger("toTwo");
+            }
+            else if (lives == 1)
+            {
+                animator.SetTrigger("toOne");
+            }
+            else if (lives == 0)
+            {
+                animator.SetTrigger("toZero");
+            }
         }
     }
 }

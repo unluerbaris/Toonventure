@@ -1,38 +1,39 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class Explode : MonoBehaviour
+namespace Toon.Attributes
 {
-    Animator animator;
-    float currentTime = 0;
-    [SerializeField] float explosionTime = 3f;
-
-    void Start()
+    public class Explode : MonoBehaviour
     {
-        animator = GetComponent<Animator>();
-    }
+        Animator animator;
+        float currentTime = 0;
+        [SerializeField] float explosionTime = 3f;
 
-    void Update()
-    {
-        currentTime += Time.deltaTime;
-        if (currentTime >= explosionTime)
+        void Start()
         {
-            animator.SetTrigger("explode");
+            animator = GetComponent<Animator>();
         }
-    }
 
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Player")
+        void Update()
         {
-            animator.SetTrigger("explode");
+            currentTime += Time.deltaTime;
+            if (currentTime >= explosionTime)
+            {
+                animator.SetTrigger("explode");
+            }
         }
-    }
 
-    // Animation event
-    void DestroyObject()
-    {
-        Destroy(gameObject);
+        void OnCollisionEnter2D(Collision2D collision)
+        {
+            if (collision.gameObject.tag == "Player")
+            {
+                animator.SetTrigger("explode");
+            }
+        }
+
+        // Animation event
+        void DestroyObject()
+        {
+            Destroy(gameObject);
+        }
     }
 }

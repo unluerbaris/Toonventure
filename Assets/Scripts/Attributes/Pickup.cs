@@ -1,13 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class Pickup : MonoBehaviour
+namespace Toon.Attributes
 {
-    [SerializeField] int score = 50;
-
-    public int GetScore()
+    public class Pickup : MonoBehaviour
     {
-        return score;
+        [SerializeField] int score = 50;
+
+        public int GetScore()
+        {
+            return score;
+        }
     }
 }

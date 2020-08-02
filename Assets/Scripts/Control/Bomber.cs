@@ -1,20 +1,21 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class Bomber : MonoBehaviour
+namespace Toon.Control
 {
-    [SerializeField] GameObject bomb;
-
-    void Start()
+    public class Bomber : MonoBehaviour
     {
-        InvokeRepeating("ThrowBomb", 1, 1);
-    }
+        [SerializeField] GameObject bomb;
 
-    private void ThrowBomb()
-    {
-        GameObject bombInstance = Instantiate(bomb,
-                                              transform.position,
-                                              Quaternion.identity) as GameObject;
+        void Start()
+        {
+            InvokeRepeating("ThrowBomb", 1, 1);
+        }
+
+        private void ThrowBomb()
+        {
+            GameObject bombInstance = Instantiate(bomb,
+                                                  transform.position,
+                                                  Quaternion.identity) as GameObject;
+        }
     }
 }

@@ -1,12 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class TargetFPS : MonoBehaviour
+namespace Toon.Core
 {
-    void Awake()
+    public class TargetFPS : MonoBehaviour
     {
-        Application.targetFrameRate = 60;
-        QualitySettings.vSyncCount = 0;
+        void Awake()
+        {
+            Application.targetFrameRate = 60;
+            QualitySettings.vSyncCount = 0;
+        }
     }
 }

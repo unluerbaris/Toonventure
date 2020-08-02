@@ -1,26 +1,27 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class EnemyStats : MonoBehaviour
+namespace Toon.Attributes
 {
-    [SerializeField] int enemyPoints = 50;
-    [SerializeField] AudioClip enemyDeathSFX;
-    [Range(0, 1)] [SerializeField] float enemyDeathVolume = 0.25f;
-    GameObject audioListener;
-
-    void Start()
+    public class EnemyStats : MonoBehaviour
     {
-        audioListener = GameObject.FindWithTag("AudioListener");
-    }
+        [SerializeField] int enemyPoints = 50;
+        [SerializeField] AudioClip enemyDeathSFX;
+        [Range(0, 1)] [SerializeField] float enemyDeathVolume = 0.25f;
+        GameObject audioListener;
 
-    public void PlayDeathSFX()
-    {
-        AudioSource.PlayClipAtPoint(enemyDeathSFX, audioListener.transform.position, enemyDeathVolume);
-    }
+        void Start()
+        {
+            audioListener = GameObject.FindWithTag("AudioListener");
+        }
 
-    public int EnemyPoints()
-    {
-        return enemyPoints;
+        public void PlayDeathSFX()
+        {
+            AudioSource.PlayClipAtPoint(enemyDeathSFX, audioListener.transform.position, enemyDeathVolume);
+        }
+
+        public int EnemyPoints()
+        {
+            return enemyPoints;
+        }
     }
 }

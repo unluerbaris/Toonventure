@@ -1,34 +1,36 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using Toon.Core;
 
-public class Chest : MonoBehaviour
+namespace Toon.Attributes
 {
-    [SerializeField] AudioClip winSFX;
-    [Range(0, 1)] [SerializeField] float winSFXVolume = 1f;
-
-    Animator animator;
-    GameSession gameSession;
-    GameObject audioListener;
-
-    bool isTriggered = false;
-
-    void Start()
+    public class Chest : MonoBehaviour
     {
-        animator = GetComponent<Animator>();
-        gameSession = gameSession = FindObjectOfType<GameSession>();
-        audioListener = GameObject.FindWithTag("AudioListener");
-    }
+        [SerializeField] AudioClip winSFX;
+        [Range(0, 1)] [SerializeField] float winSFXVolume = 1f;
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.tag == "Player" && isTriggered == false)
+        Animator animator;
+        GameSession gameSession;
+        GameObject audioListener;
+
+        bool isTriggered = false;
+
+        void Start()
         {
-            isTriggered = true;
-            animator.SetTrigger("open");
-            AudioSource.PlayClipAtPoint(winSFX, audioListener.transform.position, winSFXVolume);
-            audioListener.GetComponent<AudioSource>().enabled = false; // stop playing main theme
-            StartCoroutine(gameSession.LoadWinScreen()); 
+            animator = GetComponent<Animator>();
+            gameSession = gameSession = FindObjectOfType<GameSession>();
+            audioListener = GameObject.FindWithTag("AudioListener");
+        }
+
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (collision.tag == "Player" && isTriggered == false)
+            {
+                isTriggered = true;
+                animator.SetTrigger("open");
+                AudioSource.PlayClipAtPoint(winSFX, audioListener.transform.position, winSFXVolume);
+                audioListener.GetComponent<AudioSource>().enabled = false; // stop playing main theme
+                StartCoroutine(gameSession.LoadWinScreen());
+            }
         }
     }
 }

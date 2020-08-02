@@ -1,59 +1,60 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class PiranhaPlant : MonoBehaviour
+namespace Toon.Control
 {
-    GameObject player;
-    Animator myAnimator;
-    float attackDistance = 4f;
-
-    void Start()
+    public class PiranhaPlant : MonoBehaviour
     {
-        myAnimator = GetComponent<Animator>();
-        player = GameObject.FindWithTag("Player");
-    }
+        GameObject player;
+        Animator myAnimator;
+        float attackDistance = 4f;
 
-    void Update()
-    {
-        if (player != null)
+        void Start()
         {
-            Attack();
+            myAnimator = GetComponent<Animator>();
+            player = GameObject.FindWithTag("Player");
         }
-    }
 
-    private void Attack() 
-    {
-        FlipSprite();
-        if (InAttackRange())
+        void Update()
         {
-            myAnimator.SetBool("attack", true);
+            if (player != null)
+            {
+                Attack();
+            }
         }
-        else
-        {
-            myAnimator.SetBool("attack", false);
-        }
-    }
 
-    private void FlipSprite()
-    {
-        float playerPosX = player.transform.position.x;
-        float plantPosX = transform.position.x;
-        float distance = playerPosX - plantPosX;
-
-        if (distance < 0)
+        private void Attack()
         {
-            transform.eulerAngles = new Vector3(0, 0, 0);
+            FlipSprite();
+            if (InAttackRange())
+            {
+                myAnimator.SetBool("attack", true);
+            }
+            else
+            {
+                myAnimator.SetBool("attack", false);
+            }
         }
-        else
-        {
-            transform.eulerAngles = new Vector3(0, -180, 0);
-        }
-    }
 
-    private bool InAttackRange()
-    {
-        float distanceToPlayer = Vector2.Distance(player.transform.position, transform.position);
-        return distanceToPlayer <= attackDistance;
+        private void FlipSprite()
+        {
+            float playerPosX = player.transform.position.x;
+            float plantPosX = transform.position.x;
+            float distance = playerPosX - plantPosX;
+
+            if (distance < 0)
+            {
+                transform.eulerAngles = new Vector3(0, 0, 0);
+            }
+            else
+            {
+                transform.eulerAngles = new Vector3(0, -180, 0);
+            }
+        }
+
+        private bool InAttackRange()
+        {
+            float distanceToPlayer = Vector2.Distance(player.transform.position, transform.position);
+            return distanceToPlayer <= attackDistance;
+        }
     }
 }

@@ -1,14 +1,15 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class EnemyCollisionBehaviour : MonoBehaviour
+namespace Toon.Attributes
 {
-    private void OnCollisionEnter2D(Collision2D collision)
+    public class EnemyCollisionBehaviour : MonoBehaviour
     {
-        if (collision.gameObject.tag == "Player" && collision.collider is BoxCollider2D)
+        private void OnCollisionEnter2D(Collision2D collision)
         {
-            GetComponent<Health>().TakeDamage(1);
+            if (collision.gameObject.tag == "Player" && collision.collider is BoxCollider2D)
+            {
+                GetComponent<Health>().TakeDamage(1);
+            }
         }
     }
 }
