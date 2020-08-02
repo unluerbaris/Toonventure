@@ -128,10 +128,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 810803759}
     m_Modifications:
-    - target: {fileID: 478773201, guid: db97ad8aaa25b9e4590a603b4c43a450, type: 3}
-      propertyPath: playerPos
-      value: 
-      objectReference: {fileID: 547325964}
     - target: {fileID: 9182613030350629322, guid: db97ad8aaa25b9e4590a603b4c43a450,
         type: 3}
       propertyPath: m_Name
@@ -9337,11 +9333,26 @@ PrefabInstance:
       propertyPath: m_BoundingShape2D
       value: 
       objectReference: {fileID: 129295605}
+    - target: {fileID: 7869843300388581162, guid: ab3e11a3a39505147b0fa0c7bc2aceed,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 47.69889
+      objectReference: {fileID: 0}
     - target: {fileID: 7869843300388581163, guid: ab3e11a3a39505147b0fa0c7bc2aceed,
         type: 3}
       propertyPath: m_Follow
       value: 
       objectReference: {fileID: 547325964}
+    - target: {fileID: 7869843300548209418, guid: ab3e11a3a39505147b0fa0c7bc2aceed,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 47.699284
+      objectReference: {fileID: 0}
+    - target: {fileID: 7869843300548209418, guid: ab3e11a3a39505147b0fa0c7bc2aceed,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.8229709
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab3e11a3a39505147b0fa0c7bc2aceed, type: 3}
 --- !u!1001 &7965533807669990965

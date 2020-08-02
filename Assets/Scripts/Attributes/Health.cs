@@ -9,7 +9,7 @@ public class Health : MonoBehaviour
     [SerializeField] HealthBar healthBar = null;
 
     bool isDead = false;
-    Vector2 deathForce = new Vector2(-5f, 20f);
+    Vector2 deathForce = new Vector2(-8f, 30f);
 
     public void TakeDamage(float damage)
     {
@@ -62,7 +62,7 @@ public class Health : MonoBehaviour
 
         if (hasDeathForce)
         {
-            GetComponent<Rigidbody2D>().AddForce(deathForce, ForceMode2D.Impulse);
+            GetComponent<Rigidbody2D>().velocity = deathForce;
         }
         
         GetComponent<Animator>().SetTrigger("die");
