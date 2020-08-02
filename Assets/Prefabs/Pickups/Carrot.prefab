@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3035706637006901772}
   m_Layer: 13
   m_Name: Carrot
-  m_TagString: Untagged
+  m_TagString: Pickup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -47,8 +47,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 50
-  carrotPickUpSFX: {fileID: 8300000, guid: 2de0f0994b9593b43b927cecf83555d6, type: 3}
-  soundVol: 0.25
 --- !u!212 &3035706637006901775
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -63,6 +61,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -74,6 +73,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0

@@ -10,6 +10,7 @@ TagManager:
   - Enemy
   - PlayerDisable
   - Bottom
+  - Pickup
   layers:
   - Default
   - TransparentFX

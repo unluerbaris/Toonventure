@@ -8,6 +8,8 @@ public class PlayerCollisionBehaviour : MonoBehaviour
     float timeSinceLastCollision = Mathf.Infinity;
     bool readyForCollision = true;
 
+    [SerializeField] GameSession gameSession = null;
+
     // Detects most of the enemies
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -32,6 +34,11 @@ public class PlayerCollisionBehaviour : MonoBehaviour
         if (collision.gameObject.tag == "Enemy" && readyForCollision)
         {
             TakeDamageBehaviour();
+        }
+        if (collision.gameObject.tag == "Pickup")
+        {
+            gameSession.AddScore(collision.gameObject.GetComponent<Pickup>().GetScore());
+            Destroy(collision.gameObject);
         }
     }
 
