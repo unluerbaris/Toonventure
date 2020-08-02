@@ -5,28 +5,34 @@ using UnityEngine;
 public class Explode : MonoBehaviour
 {
     Animator animator;
-    GameObject audioListener;
-    [SerializeField] AudioClip explosionSFX;
-    [Range(0, 1)] [SerializeField] float explosionVolume = 0.25f;
+    float currentTime = 0;
+    [SerializeField] float explosionTime = 3f;
 
     void Start()
     {
         animator = GetComponent<Animator>();
-        audioListener = GameObject.FindWithTag("AudioListener");
     }
 
     void Update()
     {
-        Destroy(gameObject, 3f);
+        currentTime += Time.deltaTime;
+        if (currentTime >= explosionTime)
+        {
+            animator.SetTrigger("explode");
+        }
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
-            AudioSource.PlayClipAtPoint(explosionSFX, audioListener.transform.position, explosionVolume);
             animator.SetTrigger("explode");
-            Destroy(gameObject, 0.3f);
         }
+    }
+
+    // Animation event
+    void DestroyObject()
+    {
+        Destroy(gameObject);
     }
 }

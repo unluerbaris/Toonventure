@@ -13,7 +13,7 @@ public class PlayerCollisionBehaviour : MonoBehaviour
     // Detects most of the enemies
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Enemy" && collision.collider is PolygonCollider2D && readyForCollision)
+        if (collision.gameObject.tag == "Enemy" && (collision.collider is PolygonCollider2D || collision.collider is CircleCollider2D) && readyForCollision)
         {
             TakeDamageBehaviour();
         }

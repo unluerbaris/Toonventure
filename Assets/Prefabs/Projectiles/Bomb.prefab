@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7048830959963791320}
   m_Layer: 12
   m_Name: Bomb
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -49,6 +49,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -60,6 +61,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -151,5 +153,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1842cbc4ef0b12c45898cc096e3f802f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionSFX: {fileID: 8300000, guid: 8fb926c78de06a040979251f0d8e8775, type: 3}
-  explosionVolume: 0.25
