@@ -12,8 +12,8 @@ public class GameSession : MonoBehaviour
 
     void Start()
     {
-        gameOverCanvas.enabled = false;
-        winCanvas.enabled = false;
+        gameOverCanvas.gameObject.SetActive(false);
+        winCanvas.gameObject.SetActive(false);
         scoreText.text = score.ToString();
     }
 
@@ -26,13 +26,13 @@ public class GameSession : MonoBehaviour
     public IEnumerator LoadGameOverScreen()
     {
         yield return new WaitForSeconds(2f); // wait before enable game over screen
-        gameOverCanvas.enabled = true;
+        gameOverCanvas.gameObject.SetActive(true);
     }
 
     public IEnumerator LoadWinScreen()
     {
         yield return new WaitForSeconds(1f);
-        winCanvas.enabled = true;
+        winCanvas.gameObject.SetActive(true);
     }
 
 }

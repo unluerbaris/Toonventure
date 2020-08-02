@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8925118614876075942}
   - component: {fileID: 8925118614876075961}
+  - component: {fileID: 8925118615099601272}
+  - component: {fileID: 9121984519021815321}
   m_Layer: 0
   m_Name: Game Session
   m_TagString: Untagged
@@ -45,3 +47,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   score: 0
   scoreText: {fileID: 0}
+  gameOverCanvas: {fileID: 0}
+  winCanvas: {fileID: 0}
+--- !u!114 &8925118615099601272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8925118614876075960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ef9a9304cca59241be8e15235596aa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &9121984519021815321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8925118614876075960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f07023acc620477096d49f32367c366, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

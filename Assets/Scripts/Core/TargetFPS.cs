@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TargerFPS : MonoBehaviour
+public class TargetFPS : MonoBehaviour
 {
     void Awake()
     {

@@ -7,6 +7,7 @@ public class Health : MonoBehaviour
     [SerializeField] int health = 1;
     [SerializeField] bool hasDeathForce = false;
     [SerializeField] HealthBar healthBar = null;
+    [SerializeField] GameSession gameSession = null;
 
     bool isDead = false;
     Vector2 deathForce = new Vector2(-8f, 30f);
@@ -58,6 +59,7 @@ public class Health : MonoBehaviour
         if (GetComponent<PlayerControl>() != null)
         {
             GetComponent<PlayerControl>().enabled = false;
+            StartCoroutine(gameSession.LoadGameOverScreen());
         }
 
         if (hasDeathForce)

@@ -197,6 +197,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collisionAllowTime: 3
   blinkingSpeed: 0.1
+  gameSession: {fileID: 0}
 --- !u!114 &554273641
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -227,3 +228,4 @@ MonoBehaviour:
   health: 3
   hasDeathForce: 1
   healthBar: {fileID: 0}
+  gameSession: {fileID: 0}
