@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Toon.Core;
 
 namespace Toon.Attributes
 {
@@ -8,6 +9,7 @@ namespace Toon.Attributes
 
         public int GetScore()
         {
+
             return score;
         }
     }

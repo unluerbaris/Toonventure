@@ -196,7 +196,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collisionAllowTime: 3
-  blinkingSpeed: 0.1
+  timeBetweenBlinks: 0.07
   gameSession: {fileID: 0}
 --- !u!114 &554273641
 MonoBehaviour:

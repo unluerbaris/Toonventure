@@ -11,6 +11,7 @@ TagManager:
   - PlayerDisable
   - Bottom
   - Pickup
+  - AudioManager
   layers:
   - Default
   - TransparentFX

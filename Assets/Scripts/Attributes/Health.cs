@@ -15,6 +15,13 @@ namespace Toon.Attributes
         bool isDead = false;
         Vector2 deathForce = new Vector2(-8f, 30f);
 
+        AudioManager audioManager;
+
+        private void Awake()
+        {
+            audioManager = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>();
+        }
+
         public void TakeDamage(float damage)
         {
             health = (int)Mathf.Max(health - damage, 0);
@@ -57,10 +64,12 @@ namespace Toon.Attributes
 
             if (GetComponent<EnemyAI>() != null)
             {
+                audioManager.PlaySound("enemyDie");
                 GetComponent<EnemyAI>().enabled = false;
             }
             if (GetComponent<PlayerControl>() != null)
             {
+                audioManager.PlaySound("playerDie");
                 GetComponent<PlayerControl>().enabled = false;
                 StartCoroutine(gameSession.LoadGameOverScreen());
             }

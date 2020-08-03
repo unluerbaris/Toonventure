@@ -2068,7 +2068,7 @@ GameObject:
   - component: {fileID: 902312474}
   m_Layer: 0
   m_Name: AudioManager
-  m_TagString: Untagged
+  m_TagString: AudioManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2088,10 +2088,40 @@ MonoBehaviour:
   sounds:
   - clip: {fileID: 8300000, guid: e0919700c0096434b9f6521f9caed718, type: 3}
     soundName: Theme
+    volume: 0.4
+    pitch: 1
+    audioSource: {fileID: 0}
+    loop: 1
+  - clip: {fileID: 8300000, guid: efa92ad6172e1c840a7c66ea6b36cf69, type: 3}
+    soundName: pickup
+    volume: 1
+    pitch: 1
+    audioSource: {fileID: 0}
+    loop: 0
+  - clip: {fileID: 8300000, guid: 63856882c5e70454a89b2545c8bbf398, type: 3}
+    soundName: takeDamage
+    volume: 1
+    pitch: 1
+    audioSource: {fileID: 0}
+    loop: 0
+  - clip: {fileID: 8300000, guid: d275faba0094c004db0d6cbcf5380355, type: 3}
+    soundName: blinking
     volume: 0.5
     pitch: 1
     audioSource: {fileID: 0}
     loop: 1
+  - clip: {fileID: 8300000, guid: de6ef5a5540d98346a1ca7065334e3b5, type: 3}
+    soundName: playerDie
+    volume: 1
+    pitch: 1
+    audioSource: {fileID: 0}
+    loop: 0
+  - clip: {fileID: 8300000, guid: 159652fe20de54484882d0914255f574, type: 3}
+    soundName: enemyDie
+    volume: 1
+    pitch: 1
+    audioSource: {fileID: 0}
+    loop: 0
 --- !u!4 &902312475
 Transform:
   m_ObjectHideFlags: 0
@@ -8969,11 +8999,31 @@ PrefabInstance:
       propertyPath: m_BoundingShape2D
       value: 
       objectReference: {fileID: 129295605}
+    - target: {fileID: 7869843300388581162, guid: ab3e11a3a39505147b0fa0c7bc2aceed,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 23.938894
+      objectReference: {fileID: 0}
+    - target: {fileID: 7869843300388581162, guid: ab3e11a3a39505147b0fa0c7bc2aceed,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 5.83
+      objectReference: {fileID: 0}
     - target: {fileID: 7869843300388581163, guid: ab3e11a3a39505147b0fa0c7bc2aceed,
         type: 3}
       propertyPath: m_Follow
       value: 
       objectReference: {fileID: 547325964}
+    - target: {fileID: 7869843300548209418, guid: ab3e11a3a39505147b0fa0c7bc2aceed,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 23.939323
+      objectReference: {fileID: 0}
+    - target: {fileID: 7869843300548209418, guid: ab3e11a3a39505147b0fa0c7bc2aceed,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.8203282
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab3e11a3a39505147b0fa0c7bc2aceed, type: 3}
 --- !u!1001 &7977923841057539450
@@ -9306,12 +9356,12 @@ PrefabInstance:
     - target: {fileID: 8865379675529938911, guid: 5e54e98467d5f84458f76ba5e3eb17b3,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.83
+      value: 23.95
       objectReference: {fileID: 0}
     - target: {fileID: 8865379675529938911, guid: 5e54e98467d5f84458f76ba5e3eb17b3,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.79
+      value: 5.83
       objectReference: {fileID: 0}
     - target: {fileID: 8865379675529938911, guid: 5e54e98467d5f84458f76ba5e3eb17b3,
         type: 3}
