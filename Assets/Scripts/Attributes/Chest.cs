@@ -5,12 +5,8 @@ namespace Toon.Attributes
 {
     public class Chest : MonoBehaviour
     {
-        [SerializeField] AudioClip winSFX;
-        [Range(0, 1)] [SerializeField] float winSFXVolume = 1f;
-
         Animator animator;
         GameSession gameSession;
-        GameObject audioListener;
 
         bool isTriggered = false;
 
@@ -18,7 +14,6 @@ namespace Toon.Attributes
         {
             animator = GetComponent<Animator>();
             gameSession = gameSession = FindObjectOfType<GameSession>();
-            audioListener = GameObject.FindWithTag("AudioListener");
         }
 
         private void OnTriggerEnter2D(Collider2D collision)
@@ -27,8 +22,6 @@ namespace Toon.Attributes
             {
                 isTriggered = true;
                 animator.SetTrigger("open");
-                AudioSource.PlayClipAtPoint(winSFX, audioListener.transform.position, winSFXVolume);
-                audioListener.GetComponent<AudioSource>().enabled = false; // stop playing main theme
                 StartCoroutine(gameSession.LoadWinScreen());
             }
         }
