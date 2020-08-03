@@ -44,9 +44,10 @@ namespace Toon.Movement
             myRigidbody.velocity += jumpVelocity;
         }
 
-        public void Climb(float climbThrow)//TODO check jump on the ladder action??? And better climbing function??
+        public void Climb(float climbThrow)
         {
-            if (!myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Climbing")) || Input.GetButtonDown("Jump"))
+            // If character is not on the ladder
+            if (!myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Climbing")))
             {
                 enterClimbingState = 0;
                 myAnimator.speed = 1;
@@ -60,16 +61,20 @@ namespace Toon.Movement
             myRigidbody.gravityScale = 0f;
 
             hasVerticalSpeed = Mathf.Abs(myRigidbody.velocity.y) > Mathf.Epsilon;
+
+            // If charater is moving vertically on the ladder
             if (hasVerticalSpeed)
             {
+                myAnimator.SetBool("climbing", true);
                 enterClimbingState += Time.deltaTime;
                 myAnimator.speed = 1;
                 myAnimator.SetBool("climbing", hasVerticalSpeed);
             }
+            // If character is not moving on the ladder
             else if (!hasVerticalSpeed && myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Climbing")) && enterClimbingState >= 0.1f)
             {
+                myAnimator.SetBool("climbing", true);
                 myAnimator.speed = 0;
-                // myAnimator.SetBool("climbing", false);
             }
         }
 

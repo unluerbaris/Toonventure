@@ -16,11 +16,9 @@ namespace Toon.Control
 
         private void Update()
         {
-            //if (!isAlive) { return; }
             MoveInput();
             JumpInput();
             ClimbInput();
-            //Die();
         }
 
         private void MoveInput()
