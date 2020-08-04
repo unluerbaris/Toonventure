@@ -59,6 +59,9 @@ TagManager:
   - name: Climbing
     uniqueID: 854731319
     locked: 0
+  - name: Back Decoation
+    uniqueID: 2349156541
+    locked: 0
   - name: Enemy
     uniqueID: 3894306925
     locked: 0
@@ -70,4 +73,7 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 2813416001
+    locked: 0
+  - name: Front Decoration
+    uniqueID: 3292854141
     locked: 0

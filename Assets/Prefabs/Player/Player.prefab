@@ -228,4 +228,3 @@ MonoBehaviour:
   health: 3
   hasDeathForce: 1
   healthBar: {fileID: 0}
-  gameSession: {fileID: 0}
