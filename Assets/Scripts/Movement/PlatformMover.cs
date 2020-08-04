@@ -28,7 +28,7 @@ namespace Toon.Movement
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
-            if (collision.gameObject.tag == "Player") // Player becomes a child of the platform and moves together
+            if (collision.gameObject.tag == "Player" || collision.gameObject.tag == "PlayerDisable") // Player becomes a child of the platform and moves together
             {
                 collision.collider.transform.SetParent(transform);
             }
@@ -36,7 +36,7 @@ namespace Toon.Movement
 
         private void OnCollisionExit2D(Collision2D collision)
         {
-            if (collision.gameObject.tag == "Player") // When player jumps off from the platform, it stops to be a child of the platform
+            if (collision.gameObject.tag == "Player" || collision.gameObject.tag == "PlayerDisable") // When player jumps off from the platform, it stops to be a child of the platform
             {
                 collision.collider.transform.SetParent(null);
             }
