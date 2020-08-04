@@ -22,6 +22,11 @@ namespace Toon.Attributes
             audioManager = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>();
         }
 
+        public int GetHealth()
+        {
+            return health;
+        }
+
         public void TakeDamage(float damage)
         {
             health = (int)Mathf.Max(health - damage, 0);

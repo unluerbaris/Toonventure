@@ -65,6 +65,9 @@ namespace Toon.Attributes
             gameObject.tag = "PlayerDisable";
             timeSinceLastCollision = 0f;
             GetComponent<Health>().TakeDamage(1);
+
+            if (GetComponent<Health>().GetHealth() <= 0) return;
+
             StartCoroutine(BlinkAnimation());
         }
 
