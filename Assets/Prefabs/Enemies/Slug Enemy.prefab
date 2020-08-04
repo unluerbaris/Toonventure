@@ -82,9 +82,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3892145a6951af24482b717f312403e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPoints: 50
-  enemyDeathSFX: {fileID: 8300000, guid: 7a587bc83d1cb470e828ba6410f90a75, type: 3}
-  enemyDeathVolume: 0.25
+  enemyPoints: 80
 --- !u!212 &131667055438284396
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -243,7 +241,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 1
-  damageAllowTime: 1
+  hasDeathForce: 0
+  healthBar: {fileID: 0}
+  gameSession: {fileID: 0}
 --- !u!114 &4622430452010643922
 MonoBehaviour:
   m_ObjectHideFlags: 0

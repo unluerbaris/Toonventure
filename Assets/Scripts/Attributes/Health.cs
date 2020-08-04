@@ -10,16 +10,17 @@ namespace Toon.Attributes
         [SerializeField] int health = 1;
         [SerializeField] bool hasDeathForce = false;
         [SerializeField] HealthBar healthBar = null;
-        [SerializeField] GameSession gameSession = null;
 
         bool isDead = false;
         Vector2 deathForce = new Vector2(-8f, 30f);
 
         AudioManager audioManager;
+        GameSession gameSession;
 
         private void Awake()
         {
             audioManager = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>();
+            gameSession = GameObject.FindGameObjectWithTag("GameSession").GetComponent<GameSession>();
         }
 
         public int GetHealth()
@@ -70,6 +71,7 @@ namespace Toon.Attributes
             if (GetComponent<EnemyAI>() != null)
             {
                 audioManager.PlaySound("enemyDie");
+                gameSession.AddScore(GetComponent<EnemyStats>().GetPoints());
                 GetComponent<EnemyAI>().enabled = false;
             }
             if (GetComponent<PlayerControl>() != null)

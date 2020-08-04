@@ -4,9 +4,9 @@ namespace Toon.Attributes
 {
     public class EnemyStats : MonoBehaviour
     {
-        [SerializeField] int enemyPoints = 50;
+        [SerializeField] int enemyPoints = 80;
 
-        public int EnemyPoints()
+        public int GetPoints()
         {
             return enemyPoints;
         }
