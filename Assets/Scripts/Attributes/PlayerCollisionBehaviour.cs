@@ -29,18 +29,9 @@ namespace Toon.Attributes
             }
         }
 
-        // Detects screen border
-        private void OnTriggerExit2D(Collider2D collision)
-        {
-            if (collision.gameObject.tag == "Background")
-            {
-                GetComponent<Health>().Die();
-            }
-        }
-
-        // Detects piranha plant
         private void OnTriggerEnter2D(Collider2D collision)
         {
+            // Piranha plant
             if (collision.gameObject.tag == "Enemy" && readyForCollision)
             {
                 TakeDamageBehaviour();
@@ -50,6 +41,10 @@ namespace Toon.Attributes
                 audioManager.PlaySound("pickup");
                 gameSession.AddScore(collision.gameObject.GetComponent<Pickup>().GetScore());
                 Destroy(collision.gameObject);
+            }
+            if (collision.gameObject.tag == "Bottom")
+            {
+                GetComponent<Health>().Die();
             }
         }
 
