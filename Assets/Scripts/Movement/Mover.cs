@@ -11,9 +11,12 @@ namespace Toon.Movement
         Rigidbody2D myRigidbody;
         Animator myAnimator;
         BoxCollider2D myFeetCollider;
+        CapsuleCollider2D bodyCollider;
 
         Vector2 velocity;
         Vector2 climbVelocity;
+        Vector2 defaultBodyColliderOffset;
+        Vector2 defaultBodyColliderSize;
         bool hasHorizontalSpeed;
         bool hasVerticalSpeed;
         float gravityScaleAtStart;
@@ -25,6 +28,13 @@ namespace Toon.Movement
             myAnimator = GetComponent<Animator>();
             myFeetCollider = GetComponent<BoxCollider2D>();
             gravityScaleAtStart = myRigidbody.gravityScale;
+
+            if (gameObject.tag == "Player")
+            {
+                bodyCollider = GetComponent<CapsuleCollider2D>();
+                defaultBodyColliderOffset = bodyCollider.offset;
+                defaultBodyColliderSize = bodyCollider.size;
+            }
         }
 
         public void Move(float controlThrow)
@@ -83,10 +93,14 @@ namespace Toon.Movement
             if (isDodging)
             {
                 myAnimator.SetBool("moving", false);
+                bodyCollider.offset = new Vector2(0.091f, -0.475f);
+                bodyCollider.size = new Vector2(1.03f, 1.03f);
                 myAnimator.SetBool("duck", true);
             }
             else
             {
+                bodyCollider.offset = defaultBodyColliderOffset;
+                bodyCollider.size = defaultBodyColliderSize;
                 myAnimator.SetBool("duck", false);
             }
         }
