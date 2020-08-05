@@ -49,7 +49,7 @@ namespace Toon.Control
 
         private bool DodgeInput()
         {
-            if (Input.GetAxis("Vertical") < dodgeSensitivity && !myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Climbing")))
+            if (Input.GetButton("Down") && !myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Climbing")))
             {
                 mover.Dodge(true);
                 return true;

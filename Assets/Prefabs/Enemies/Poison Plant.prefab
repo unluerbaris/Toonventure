@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 8257308716018463301}
   - component: {fileID: 9113301259203014415}
   m_Layer: 12
-  m_Name: Piranha Plant
+  m_Name: Poison Plant
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
