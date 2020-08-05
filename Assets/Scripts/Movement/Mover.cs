@@ -78,6 +78,19 @@ namespace Toon.Movement
             }
         }
 
+        public void Dodge(bool isDodging)
+        {
+            if (isDodging)
+            {
+                myAnimator.SetBool("moving", false);
+                myAnimator.SetBool("duck", true);
+            }
+            else
+            {
+                myAnimator.SetBool("duck", false);
+            }
+        }
+
         private void FlipSprite()
         {
             bool playerHasHorizontalSpeed = Mathf.Abs(myRigidbody.velocity.x) > Mathf.Epsilon;
