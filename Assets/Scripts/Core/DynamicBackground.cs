@@ -12,7 +12,7 @@ namespace Toon.Core
         void Awake()
         {
             mainCamera = gameObject.GetComponent<Camera>();
-            screenBounds = mainCamera.ScreenToWorldPoint(new Vector3(Screen.width * 2,
+            screenBounds = mainCamera.ScreenToWorldPoint(new Vector3(Screen.width,
                                                                      Screen.height,
                                                                      mainCamera.transform.position.z));
             foreach (GameObject obj in backgrounds)
@@ -47,6 +47,7 @@ namespace Toon.Core
             // calculate how many child objects we need
             // they should cover the double size of the screen width
             int objectsNeeded = (int)Mathf.Ceil(screenBounds.x * 2 / objectWidth);
+
             GameObject clone = Instantiate(obj) as GameObject;
 
             for (int i = 0; i <= objectsNeeded; i++) // duplicate the clone object at the start
@@ -58,6 +59,7 @@ namespace Toon.Core
                                                                  obj.transform.position.z);
                 duplicatedClone.name = obj.name + i; // change the clone name to keep things tidy
             }
+
             Destroy(clone); // we can remove the first clone object, because we already duplicated it
             Destroy(obj.GetComponent<SpriteRenderer>()); // origial oject doesn't need sprite renderer
                                                          // because clone duplications already have it
