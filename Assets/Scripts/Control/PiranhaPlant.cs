@@ -8,8 +8,11 @@ namespace Toon.Control
         Animator myAnimator;
         [SerializeField] float attackDistance = 4f;
         [SerializeField] bool canShootPoison = false;
-        float timeBetweenPoisonAttacks = Mathf.Infinity;
         [SerializeField] float poisonAttackWaitTime = 3f;
+        [SerializeField] GameObject projectile = null;
+        [SerializeField] Transform shootingPoint = null;
+        
+        float timeBetweenPoisonAttacks = Mathf.Infinity;
 
         void Start()
         {
@@ -46,6 +49,8 @@ namespace Toon.Control
             }
             else
             {
+                if (canShootPoison) return;
+
                 myAnimator.SetBool("attack", false);
             }
         }
@@ -56,6 +61,11 @@ namespace Toon.Control
             myAnimator.SetTrigger("poisonAttack");
         }
 
+        void Shoot() //Animation event
+        {
+            Instantiate(projectile, shootingPoint.position, shootingPoint.rotation);
+        }
+
         private void FlipSprite()
         {
             float playerPosX = player.transform.position.x;
@@ -64,11 +74,11 @@ namespace Toon.Control
 
             if (distance < 0)
             {
-                transform.eulerAngles = new Vector3(0, 0, 0);
+                transform.eulerAngles = new Vector3(0, -180, 0);
             }
             else
             {
-                transform.eulerAngles = new Vector3(0, -180, 0);
+                transform.eulerAngles = new Vector3(0, 0, 0);
             }
         }
 
