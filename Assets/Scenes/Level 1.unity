@@ -1720,6 +1720,24 @@ MonoBehaviour:
     pitch: 1
     audioSource: {fileID: 0}
     loop: 0
+  - clip: {fileID: 8300000, guid: 8fb926c78de06a040979251f0d8e8775, type: 3}
+    soundName: explosion
+    volume: 0.7
+    pitch: 1
+    audioSource: {fileID: 0}
+    loop: 0
+  - clip: {fileID: 8300000, guid: acd7e27025350ef4eb397fd3b1d613d7, type: 3}
+    soundName: fire
+    volume: 0.5
+    pitch: 1
+    audioSource: {fileID: 0}
+    loop: 0
+  - clip: {fileID: 8300000, guid: 1dc9ebac22f58284abe37d4aa398d701, type: 3}
+    soundName: bite
+    volume: 0.5
+    pitch: 1
+    audioSource: {fileID: 0}
+    loop: 0
 --- !u!4 &902312475
 Transform:
   m_ObjectHideFlags: 0

@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Toon.Core;
 
 namespace Toon.Control
 {
@@ -6,6 +7,8 @@ namespace Toon.Control
     {
         GameObject player;
         Animator myAnimator;
+        AudioManager audioManager;
+
         [SerializeField] float attackDistance = 4f;
         [SerializeField] bool canShootPoison = false;
         [SerializeField] float poisonAttackWaitTime = 3f;
@@ -16,6 +19,7 @@ namespace Toon.Control
 
         void Start()
         {
+            audioManager = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>();
             myAnimator = GetComponent<Animator>();
             player = GameObject.FindWithTag("Player");
         }
@@ -63,8 +67,14 @@ namespace Toon.Control
 
         void Shoot() //Animation event
         {
+            audioManager.PlaySound("fire");
             GameObject projectileInstance = Instantiate(projectile, shootingPoint.position, shootingPoint.rotation);
             Destroy(projectileInstance, 5);
+        }
+
+        void Bite() //Animation event
+        {
+            audioManager.PlaySound("bite");
         }
 
         private void FlipSprite()

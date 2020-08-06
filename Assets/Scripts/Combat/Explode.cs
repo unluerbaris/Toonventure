@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Toon.Attributes
+namespace Toon.Combat
 {
     public class Explode : MonoBehaviour
     {
@@ -18,7 +18,7 @@ namespace Toon.Attributes
             currentTime += Time.deltaTime;
             if (currentTime >= explosionTime)
             {
-                animator.SetTrigger("explode");
+                ExplodeBehaviour();
             }
         }
 
@@ -26,8 +26,13 @@ namespace Toon.Attributes
         {
             if (collision.gameObject.tag == "Player")
             {
-                animator.SetTrigger("explode");
+                ExplodeBehaviour();
             }
+        }
+
+        private void ExplodeBehaviour()
+        {
+            animator.SetTrigger("explode");
         }
 
         // Animation event
