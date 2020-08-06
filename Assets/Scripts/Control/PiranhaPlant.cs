@@ -6,7 +6,10 @@ namespace Toon.Control
     {
         GameObject player;
         Animator myAnimator;
-        float attackDistance = 4f;
+        [SerializeField] float attackDistance = 4f;
+        [SerializeField] bool canShootPoison = false;
+        float timeBetweenPoisonAttacks = Mathf.Infinity;
+        [SerializeField] float poisonAttackWaitTime = 3f;
 
         void Start()
         {
@@ -16,6 +19,10 @@ namespace Toon.Control
 
         void Update()
         {
+            if (canShootPoison)
+            {
+                timeBetweenPoisonAttacks += Time.deltaTime;
+            }
             if (player != null)
             {
                 Attack();
@@ -27,12 +34,26 @@ namespace Toon.Control
             FlipSprite();
             if (InAttackRange())
             {
+                // If plant shoots poison ball use set trigger 
+                if (canShootPoison)
+                {
+                    if (timeBetweenPoisonAttacks < poisonAttackWaitTime) return;
+                    PoisonAttack();
+                    return;
+                }
+
                 myAnimator.SetBool("attack", true);
             }
             else
             {
                 myAnimator.SetBool("attack", false);
             }
+        }
+
+        private void PoisonAttack()
+        {
+            timeBetweenPoisonAttacks = 0;
+            myAnimator.SetTrigger("poisonAttack");
         }
 
         private void FlipSprite()

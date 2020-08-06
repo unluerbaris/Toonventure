@@ -1597,11 +1597,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Poison Plant
       objectReference: {fileID: 0}
-    - target: {fileID: 9182613030350629332, guid: c35f67749b6d14a4383c7d0add8f71b0,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 2cb8fcb6725f04c58b9bdc6c5825fff0, type: 2}
     - target: {fileID: 9182613030350629333, guid: c35f67749b6d14a4383c7d0add8f71b0,
         type: 3}
       propertyPath: m_LocalPosition.x

@@ -117,7 +117,7 @@ Animator:
   m_GameObject: {fileID: 9182613030350629322}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: db4f9754483332242807efb058100f4d, type: 2}
+  m_Controller: {fileID: 9100000, guid: 2cb8fcb6725f04c58b9bdc6c5825fff0, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -138,6 +138,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e44de198a45dc3145afbe861b7cf0041, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackDistance: 15
+  canShootPoison: 1
+  poisonAttackWaitTime: 3
 --- !u!61 &8257308716018463301
 BoxCollider2D:
   m_ObjectHideFlags: 0
