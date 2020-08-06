@@ -13,7 +13,6 @@ TagManager:
   - Pickup
   - AudioManager
   - GameSession
-  - Poison
   layers:
   - Default
   - TransparentFX

@@ -31,11 +31,12 @@ namespace Toon.Attributes
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            // Piranha plant
+            // Piranha plant and projectile
             if (collision.gameObject.tag == "Enemy" && readyForCollision)
             {
                 TakeDamageBehaviour();
             }
+
             if (collision.gameObject.tag == "Pickup")
             {
                 audioManager.PlaySound("pickup");

@@ -63,7 +63,8 @@ namespace Toon.Control
 
         void Shoot() //Animation event
         {
-            Instantiate(projectile, shootingPoint.position, shootingPoint.rotation);
+            GameObject projectileInstance = Instantiate(projectile, shootingPoint.position, shootingPoint.rotation);
+            Destroy(projectileInstance, 5);
         }
 
         private void FlipSprite()
