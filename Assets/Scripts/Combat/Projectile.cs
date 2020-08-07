@@ -13,5 +13,13 @@ namespace Toon.Combat
             projectileRigidBody = GetComponent<Rigidbody2D>();
             projectileRigidBody.velocity = speed * transform.right;
         }
+
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (collision.gameObject.tag == "Player")
+            {
+                Destroy(gameObject);
+            }
+        }
     }
 }
