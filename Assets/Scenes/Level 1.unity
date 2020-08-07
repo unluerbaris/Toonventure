@@ -21561,11 +21561,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameOver Canvas
       objectReference: {fileID: 0}
-    - target: {fileID: 7282102465720675812, guid: f861a3903a0a519488888746792c6ed1,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7977923840874567240, guid: f861a3903a0a519488888746792c6ed1,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -21782,51 +21777,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Win Canvas
       objectReference: {fileID: 0}
-    - target: {fileID: 2333984365316663957, guid: 03ef07b3301e84d489794eaf15b2a6a4,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2333984365813159834, guid: 03ef07b3301e84d489794eaf15b2a6a4,
-        type: 3}
-      propertyPath: m_fontSize
-      value: 70
-      objectReference: {fileID: 0}
-    - target: {fileID: 2333984365813159834, guid: 03ef07b3301e84d489794eaf15b2a6a4,
-        type: 3}
-      propertyPath: m_fontSizeBase
-      value: 70
-      objectReference: {fileID: 0}
     - target: {fileID: 3160265252398420281, guid: 03ef07b3301e84d489794eaf15b2a6a4,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 8925118615099601272}
-    - target: {fileID: 3160265253047211021, guid: 03ef07b3301e84d489794eaf15b2a6a4,
-        type: 3}
-      propertyPath: m_fontSize
-      value: 60
-      objectReference: {fileID: 0}
-    - target: {fileID: 3160265253047211021, guid: 03ef07b3301e84d489794eaf15b2a6a4,
-        type: 3}
-      propertyPath: m_fontSizeBase
-      value: 60
-      objectReference: {fileID: 0}
-    - target: {fileID: 5002588747836708015, guid: 03ef07b3301e84d489794eaf15b2a6a4,
-        type: 3}
-      propertyPath: m_Color.a
-      value: 0.23529412
-      objectReference: {fileID: 0}
-    - target: {fileID: 5002588747920061778, guid: 03ef07b3301e84d489794eaf15b2a6a4,
-        type: 3}
-      propertyPath: m_fontSize
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 5002588747920061778, guid: 03ef07b3301e84d489794eaf15b2a6a4,
-        type: 3}
-      propertyPath: m_fontSizeBase
-      value: 100
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 03ef07b3301e84d489794eaf15b2a6a4, type: 3}
 --- !u!1001 &8865379676308762168
