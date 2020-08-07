@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using Toon.Movement;
+using Toon.Core;
 
 namespace Toon.Control
 {
@@ -7,13 +8,14 @@ namespace Toon.Control
     {
         Mover mover;
         BoxCollider2D myFeetCollider;
+        AudioManager audioManager;
 
         float climbThrow;
         float controlThrow;
-        float dodgeSensitivity = -0.15f;
 
         private void Start()
         {
+            audioManager = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>();
             mover = GetComponent<Mover>();
             myFeetCollider = GetComponent<BoxCollider2D>();
         }
@@ -37,6 +39,11 @@ namespace Toon.Control
         {
             if (Input.GetButtonDown("Jump"))
             {
+                //Don't play audio if player is already on the air
+                if (myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Ground")))
+                {
+                    audioManager.PlaySound("jump");
+                }
                 mover.Jump();
             }
         }
