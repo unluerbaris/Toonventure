@@ -1700,7 +1700,7 @@ MonoBehaviour:
   sounds:
   - clip: {fileID: 8300000, guid: e0919700c0096434b9f6521f9caed718, type: 3}
     soundName: Theme
-    volume: 0.25
+    volume: 0.3
     pitch: 1
     audioSource: {fileID: 0}
     loop: 1
@@ -1710,7 +1710,7 @@ MonoBehaviour:
     pitch: 1
     audioSource: {fileID: 0}
     loop: 0
-  - clip: {fileID: 8300000, guid: 63856882c5e70454a89b2545c8bbf398, type: 3}
+  - clip: {fileID: 8300000, guid: 8e3dbf33883dc4b8bb18dbe58af85af6, type: 3}
     soundName: takeDamage
     volume: 1
     pitch: 1
@@ -1718,7 +1718,7 @@ MonoBehaviour:
     loop: 0
   - clip: {fileID: 8300000, guid: d275faba0094c004db0d6cbcf5380355, type: 3}
     soundName: blinking
-    volume: 0.5
+    volume: 0.7
     pitch: 1
     audioSource: {fileID: 0}
     loop: 1
@@ -1752,8 +1752,14 @@ MonoBehaviour:
     pitch: 1
     audioSource: {fileID: 0}
     loop: 0
-  - clip: {fileID: 8300000, guid: ae19bd08e62fde343a2b13419d81855f, type: 3}
+  - clip: {fileID: 8300000, guid: 2c3e644299e244e07963f5b1c246a434, type: 3}
     soundName: jump
+    volume: 0.5
+    pitch: 1
+    audioSource: {fileID: 0}
+    loop: 0
+  - clip: {fileID: 8300000, guid: 2c68252272bd148219bbab73471fc1be, type: 3}
+    soundName: win
     volume: 0.7
     pitch: 1
     audioSource: {fileID: 0}
@@ -14180,12 +14186,12 @@ PrefabInstance:
     - target: {fileID: 8865379675529938911, guid: 5e54e98467d5f84458f76ba5e3eb17b3,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.72
+      value: 171.7
       objectReference: {fileID: 0}
     - target: {fileID: 8865379675529938911, guid: 5e54e98467d5f84458f76ba5e3eb17b3,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.64
+      value: 1.7
       objectReference: {fileID: 0}
     - target: {fileID: 8865379675529938911, guid: 5e54e98467d5f84458f76ba5e3eb17b3,
         type: 3}

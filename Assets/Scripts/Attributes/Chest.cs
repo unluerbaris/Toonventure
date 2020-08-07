@@ -7,6 +7,7 @@ namespace Toon.Attributes
     {
         Animator animator;
         GameSession gameSession;
+        AudioManager audioManager;
 
         bool isTriggered = false;
 
@@ -14,6 +15,7 @@ namespace Toon.Attributes
         {
             animator = GetComponent<Animator>();
             gameSession = gameSession = FindObjectOfType<GameSession>();
+            audioManager = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManager>();
         }
 
         private void OnTriggerEnter2D(Collider2D collision)
@@ -21,6 +23,7 @@ namespace Toon.Attributes
             if (collision.tag == "Player" && isTriggered == false)
             {
                 isTriggered = true;
+                audioManager.PlaySound("win");
                 animator.SetTrigger("open");
                 StartCoroutine(gameSession.LoadWinScreen());
             }
