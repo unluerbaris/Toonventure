@@ -11,8 +11,9 @@ namespace Toon.Core
         [SerializeField] Canvas gameOverCanvas;
         [SerializeField] Canvas winCanvas;
 
-        void Start()
+        void Awake()
         {
+            Time.timeScale = 1;
             gameOverCanvas.gameObject.SetActive(false);
             winCanvas.gameObject.SetActive(false);
             scoreText.text = score.ToString();
@@ -34,6 +35,7 @@ namespace Toon.Core
         {
             yield return new WaitForSeconds(1f);
             winCanvas.gameObject.SetActive(true);
+            Time.timeScale = 0;
         }
     }
 }

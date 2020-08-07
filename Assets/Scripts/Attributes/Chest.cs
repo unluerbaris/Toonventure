@@ -25,6 +25,7 @@ namespace Toon.Attributes
                 isTriggered = true;
                 audioManager.PlaySound("win");
                 animator.SetTrigger("open");
+                audioManager.StopPlaySound("Theme");
                 StartCoroutine(gameSession.LoadWinScreen());
             }
         }
