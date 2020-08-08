@@ -27367,6 +27367,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameOver Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 7282102465720675812, guid: f861a3903a0a519488888746792c6ed1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7977923840874567240, guid: f861a3903a0a519488888746792c6ed1,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -27608,12 +27613,12 @@ PrefabInstance:
     - target: {fileID: 8865379675529938911, guid: 5e54e98467d5f84458f76ba5e3eb17b3,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.81
+      value: -2.5
       objectReference: {fileID: 0}
     - target: {fileID: 8865379675529938911, guid: 5e54e98467d5f84458f76ba5e3eb17b3,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.85
+      value: -3.87
       objectReference: {fileID: 0}
     - target: {fileID: 8865379675529938911, guid: 5e54e98467d5f84458f76ba5e3eb17b3,
         type: 3}
