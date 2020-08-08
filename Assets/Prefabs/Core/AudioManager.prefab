@@ -1,0 +1,112 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4293039731500857723
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4293039731500857721}
+  - component: {fileID: 4293039731500857720}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: AudioManager
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4293039731500857721
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4293039731500857723}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4293039731500857720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4293039731500857723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc9c73cf102bb41759e7f662f38ec9f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - clip: {fileID: 8300000, guid: e0919700c0096434b9f6521f9caed718, type: 3}
+    soundName: Theme
+    volume: 0.3
+    pitch: 1
+    audioSource: {fileID: 0}
+    loop: 1
+  - clip: {fileID: 8300000, guid: efa92ad6172e1c840a7c66ea6b36cf69, type: 3}
+    soundName: pickup
+    volume: 0.6
+    pitch: 1
+    audioSource: {fileID: 0}
+    loop: 0
+  - clip: {fileID: 8300000, guid: 8e3dbf33883dc4b8bb18dbe58af85af6, type: 3}
+    soundName: takeDamage
+    volume: 1
+    pitch: 1
+    audioSource: {fileID: 0}
+    loop: 0
+  - clip: {fileID: 8300000, guid: d275faba0094c004db0d6cbcf5380355, type: 3}
+    soundName: blinking
+    volume: 0.7
+    pitch: 1
+    audioSource: {fileID: 0}
+    loop: 1
+  - clip: {fileID: 8300000, guid: de6ef5a5540d98346a1ca7065334e3b5, type: 3}
+    soundName: playerDie
+    volume: 1
+    pitch: 1
+    audioSource: {fileID: 0}
+    loop: 0
+  - clip: {fileID: 8300000, guid: 159652fe20de54484882d0914255f574, type: 3}
+    soundName: enemyDie
+    volume: 1
+    pitch: 1
+    audioSource: {fileID: 0}
+    loop: 0
+  - clip: {fileID: 8300000, guid: 8fb926c78de06a040979251f0d8e8775, type: 3}
+    soundName: explosion
+    volume: 0.7
+    pitch: 1
+    audioSource: {fileID: 0}
+    loop: 0
+  - clip: {fileID: 8300000, guid: acd7e27025350ef4eb397fd3b1d613d7, type: 3}
+    soundName: fire
+    volume: 0.5
+    pitch: 1
+    audioSource: {fileID: 0}
+    loop: 0
+  - clip: {fileID: 8300000, guid: 1dc9ebac22f58284abe37d4aa398d701, type: 3}
+    soundName: bite
+    volume: 0.6
+    pitch: 1
+    audioSource: {fileID: 0}
+    loop: 0
+  - clip: {fileID: 8300000, guid: 2c3e644299e244e07963f5b1c246a434, type: 3}
+    soundName: jump
+    volume: 0.5
+    pitch: 1
+    audioSource: {fileID: 0}
+    loop: 0
+  - clip: {fileID: 8300000, guid: 2c68252272bd148219bbab73471fc1be, type: 3}
+    soundName: win
+    volume: 0.7
+    pitch: 1
+    audioSource: {fileID: 0}
+    loop: 0

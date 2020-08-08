@@ -10,6 +10,8 @@ namespace Toon.Core
 
         void Awake()
         {
+            DontDestroyOnLoad(gameObject);
+
             if (instance == null) // if there is no other instance use this gameobject
             {
                 instance = this;
