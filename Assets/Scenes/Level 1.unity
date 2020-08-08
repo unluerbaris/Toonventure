@@ -27367,11 +27367,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameOver Canvas
       objectReference: {fileID: 0}
-    - target: {fileID: 7282102465720675812, guid: f861a3903a0a519488888746792c6ed1,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7977923840874567240, guid: f861a3903a0a519488888746792c6ed1,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
