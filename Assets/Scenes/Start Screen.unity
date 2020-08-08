@@ -285,6 +285,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1183898365 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4293039731500857720, guid: ef072006a9e374aae9e7db93a2e6e34b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1565728407}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc9c73cf102bb41759e7f662f38ec9f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1502584212
 GameObject:
   m_ObjectHideFlags: 0
@@ -601,6 +613,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1822816843858202170, guid: a986c959f9a31c24e859129aa1c633c3,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1183898365}
+    - target: {fileID: 1822816843858202170, guid: a986c959f9a31c24e859129aa1c633c3,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1183898365}
     - target: {fileID: 1822816843858202175, guid: a986c959f9a31c24e859129aa1c633c3,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -611,6 +633,16 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1556972413}
+    - target: {fileID: 1822816844774322327, guid: a986c959f9a31c24e859129aa1c633c3,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1183898365}
+    - target: {fileID: 1822816844774322327, guid: a986c959f9a31c24e859129aa1c633c3,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1183898365}
     - target: {fileID: 1822816844847481355, guid: a986c959f9a31c24e859129aa1c633c3,
         type: 3}
       propertyPath: m_LocalPosition.x
